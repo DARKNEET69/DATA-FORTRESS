@@ -3,7 +3,7 @@ content:
   - name: data
     label: DATA
     path: data.json
-    type: file
+    type: collection
     fields:
       - name: id
         label: ID
