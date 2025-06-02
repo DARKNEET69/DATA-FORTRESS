@@ -10,6 +10,7 @@ content:
       primary: name
       sort: [ name, tags ]
     fields:
+      - { name: item, label: Item, component: item }
       - { name: id, label: ID, type: string, required: true }
       - { name: name, label: NAME, type: string, required: true }
       - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
@@ -26,4 +27,16 @@ content:
       - { name: range, label: RANGE, type: number }
       - { name: cost, label: COST, type: number }
       - { name: src, label: SRC, type: string }
+      - { name: note, label: NOTE, type: rich-text }
+
+components:
+  item:
+    label: item
+    type: object
+    fields:
+      - { name: id, label: ID, type: string, required: true }
+      - { name: name, label: NAME, type: string, required: true }
+      - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
+      - { name: image, label: IMAGE, type: image }
+      - { name: cost, label: COST, type: number }
       - { name: note, label: NOTE, type: rich-text }
