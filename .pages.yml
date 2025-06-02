@@ -23,7 +23,7 @@ content:
       - { name: range, label: RANGE, type: number }      
   - name: weapons
     label: WEAPONS
-    path: data/weapons.json
+    path: data/weapons.csv
     type: file
     format: datagrid
     view:
