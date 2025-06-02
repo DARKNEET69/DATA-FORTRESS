@@ -17,7 +17,7 @@
   "wa": 1,
   "con": "J",
   "avail": "E",
-  "ammo": "null",
+  "ammo": "data/ammunition/38.json",
   "shots": 10,
   "rof": 2,
   "burst": false,
