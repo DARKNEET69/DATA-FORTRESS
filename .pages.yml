@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ item.image, item.name, item.tags, wa, con, avail, ammo.damage, ammo.caliber, shots, rof, rel, range, item.cost, item.src ]
+      fields: [ image, name, tags, wa, con, avail, ammo.damage, ammo.caliber, shots, rof, rel, range, item.cost, item.src ]
       primary: name
     fields:
       - { name: item, label: ITEM, component: item }
@@ -27,7 +27,7 @@ content:
     type: collection
     view:
       fields: [ item.image, item.name, item.tags, caliber, damage, damageType, avail, item.cost, item.src ]
-      primary: item.name
+      primary: name
     fields:
       - { name: item, label: ITEM, component: item }
       - { name: caliber, label: CALIBER, type: string }
