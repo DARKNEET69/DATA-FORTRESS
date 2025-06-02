@@ -7,7 +7,7 @@ content:
     type: collection
     view:
       fields: [ item.image, item.name, item.tags, wa, con, avail, "ammo[0].damage", "ammo[0].caliber", shots, rof, rel, range, item.cost, item.src ]
-      primary: item.name
+      primary: name
     fields:
       - { name: item, label: ITEM, component: item }
       - { name: wa, label: WA, type: number }
