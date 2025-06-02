@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ image, name, tags, wa, con, damage, ammo, shots, rel, range, cost, src ]
+      fields: [ image, name, tags, wa, con, avail, damage, ammo, shots, rel, range, cost, src ]
       primary: name
       sort: [ name, tags ]
     fields:
@@ -16,12 +16,13 @@ content:
       - { name: image, label: IMAGE, type: image }
       - { name: wa, label: WA, type: number }
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
-      - { name: damage, label: DAMAGE, type: text }
-      - { name: ammo, label: AMMO, type: text }
+      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
+      - { name: damage, label: DAMAGE, type: string }
+      - { name: ammo, label: AMMO, type: string }
       - { name: shots, label: SHOTS, type: number }
       - { name: burst, label: BURST, type: boolean }
       - { name: rel, label: REL, options: { values: [ UR, ST, VR ] }}
       - { name: range, label: RANGE, type: number }
       - { name: cost, label: COST, type: number }
-      - { name: src, label: SRC, type: text }
+      - { name: src, label: SRC, type: string }
       - { name: note, label: NOTE, type: rich-text }
