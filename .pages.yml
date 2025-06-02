@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ item.image, item.name, item.tags, wa, con, avail, "ammo.damage", "ammo.caliber", shots, rof, rel, range, item.cost, item.src ]
+      fields: [ item.image, item.name, item.tags, wa, con, avail, "{ammo.damage}", "{ammo.caliber}", shots, rof, rel, range, item.cost, item.src ]
       primary: name
     fields:
       - { name: item, label: ITEM, component: item }
@@ -14,7 +14,7 @@ content:
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
       - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
       - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "item.name", value: "{item.id}", label: "{item.name damageType}" }}
+      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "item.name", value: "item.id", label: "item.name" }}
       - { name: shots, label: SHOTS, type: number }
       - { name: rof, label: ROF, type: number }
       - { name: burst, label: BURST, type: boolean }
@@ -46,5 +46,5 @@ components:
       - { name: image, label: IMAGE, type: image }
       - { name: cost, label: COST, type: number }
       - { name: note, label: NOTE, type: rich-text }
-      - { name: src, label: SRC, type: string }
+      - { name: src, label: SRC, type: string}
       - { name: homebrew, label: HOMEBREW, type: boolean }
