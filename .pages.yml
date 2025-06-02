@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ item.image, item.name, item.tags, wa, con, avail, "ammo[0].damage", "ammo[0]", shots, rof, rel, range, item.cost, item.src ]
+      fields: [ item.image, item.name, item.tags, wa, con, avail, ammo.damage, ammo.caliber, shots, rof, rel, range, item.cost, item.src ]
       primary: name
     fields:
       - { name: item, label: ITEM, component: item }
@@ -14,7 +14,7 @@ content:
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
       - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
       - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, multiple: true, search: "item.name", value: "{item.id}", label: "{item.name}"}}
+      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "item.name", value: "{item.id}", label: "{item.name}"}}
       - { name: shots, label: SHOTS, type: number }
       - { name: rof, label: ROF, type: number }
       - { name: burst, label: BURST, type: boolean }
