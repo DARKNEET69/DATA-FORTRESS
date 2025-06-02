@@ -2,7 +2,8 @@ media: media/images
 content:
   - name: data
     label: DATA
-    path: data.json
+    path: data
+    filename: '{primary}.json'
     type: collection
     fields:
       - { name: id, label: ID, type: string, required: true }
