@@ -4,6 +4,7 @@ content:
     label: INDEX
     path: index.html
     type: file
+    format: code
   - name: data
     label: DATA
     path: data
