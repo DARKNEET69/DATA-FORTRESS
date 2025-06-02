@@ -5,7 +5,11 @@ content:
     path: data.json
     type: file
     fields:
-      - { name: id, label: ID, type: string, required: true }
-      - { name: name, label: NAME, type: string, required: true }
-      - { name: tags, label: TAGS, type: string, list: { collapsible: false }}          
-      - { name: image, label: IMAGE, type: image }
+      - name: data
+        label: DATA
+        type: object
+        fields:
+          - { name: id, label: ID, type: string, required: true }
+          - { name: name, label: NAME, type: string, required: true }
+          - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
+          - { name: image, label: IMAGE, type: image }
