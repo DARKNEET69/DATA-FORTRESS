@@ -20,8 +20,9 @@ content:
       - { name: damage, label: DAMAGE, type: string }
       - { name: ammo, label: AMMO, type: string }
       - { name: shots, label: SHOTS, type: number }
+      - { name: rof, label: ROF, type: number }
       - { name: burst, label: BURST, type: boolean }
-      - { name: rel, label: REL, options: { values: [ UR, ST, VR ] }}
+      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
       - { name: range, label: RANGE, type: number }
       - { name: cost, label: COST, type: number }
       - { name: src, label: SRC, type: string }
