@@ -1,11 +1,12 @@
 {
   "item": {
-    "id": ".38",
+    "id": "63bf1036-da2e-43e4-b23c-93ca84852e00",
     "name": ".38",
     "tags": [
       "ammo"
     ],
-    "cost": 15
+    "cost": 15,
+    "homebrew": false
   },
   "caliber": ".38",
   "damage": "2d6",
