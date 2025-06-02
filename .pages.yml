@@ -21,6 +21,3 @@ content:
       - name: image
         label: IMAGE
         type: image
-        options:
-          multiple:
-            max: 6
