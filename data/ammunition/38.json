@@ -1,0 +1,13 @@
+{
+  "item": {
+    "id": ".38",
+    "name": ".38",
+    "tags": [
+      "ammo"
+    ],
+    "cost": 15
+  },
+  "caliber": ".38",
+  "damage": "2d6",
+  "avail": "E"
+}
