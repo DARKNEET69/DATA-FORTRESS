@@ -26,7 +26,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ item.image, item.name, item.tags, caliber, damage, damageType, avail, item.cost, item.src ]
+      fields: [ item.name, item.tags, caliber, damage, damageType, avail, item.cost, item.src ]
       primary: name
     fields:
       - { name: item, label: ITEM, component: item }
