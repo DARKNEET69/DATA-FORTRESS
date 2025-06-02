@@ -8,4 +8,15 @@
     "light pistol"
   ],
   "image": "/media/images/Federated_Arms_X-38.webp"
+},
+{
+  "id": "Federated_Arms_X-22",
+  "name": "Federated Arms X-22",
+  "tags": [
+    "weapon",
+    "firearm",
+    "pistol",
+    "light pistol"
+  ],
+  "image": ""
 }
