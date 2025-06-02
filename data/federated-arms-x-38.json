@@ -8,5 +8,9 @@
     "light pistol"
   ],
   "image": "/media/images/Federated_Arms_X-38.webp",
+  "wa": 1,
+  "con": "J",
+  "damage": "1d6",
+  "burst": false,
   "note": "Federated Arms X-38 - недорогой автоматический пистолет под безгильзовый патрон .38."
 }
