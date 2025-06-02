@@ -47,3 +47,4 @@ components:
       - { name: cost, label: COST, type: number }
       - { name: note, label: NOTE, type: rich-text }
       - { name: src, label: SRC, type: string }
+      - { name: homebrew, label: HOMEBREW, type: boolean }
