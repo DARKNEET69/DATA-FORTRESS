@@ -1,26 +1,39 @@
 media: media/images
 content:
-  - name: data
-    label: DATA
-    path: data
+  - name: weapons
+    label: Weapons
+    path: data/weapons
     filename: '{primary}.json'
     type: collection
     view:
       fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
-      primary: name
-      sort: [ name, tags ]
+      primary: item.name
     fields:
       - { name: item, label: ITEM, component: item }
       - { name: wa, label: WA, type: number }
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
       - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
       - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: string }
+      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, multiple: true, search: "item.name", value: "{item.id}", label: "{item.name}"}}
       - { name: shots, label: SHOTS, type: number }
       - { name: rof, label: ROF, type: number }
       - { name: burst, label: BURST, type: boolean }
       - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
       - { name: range, label: RANGE, type: number }
+  - name: ammunition
+    label: Ammunition
+    path: data/ammunition
+    filename: '{primary}.json'
+    type: collection
+    view:
+      fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
+      primary: item.name
+    fields:
+      - { name: item, label: ITEM, component: item }
+      - { name: caliber, label: CALIBER, type: string }
+      - { name: damage, label: DAMAGE, type: string }
+      - { name: damageType, label: DAMAGE TYPE, type: string }
+      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
 
 components:
   item:
