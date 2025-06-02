@@ -14,7 +14,7 @@ content:
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
       - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
       - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "item.name", value: "{item.id}", label: {"item.name"}}}
+      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "{item.name}", value: "{item.id}", label: {"item.name"}}}
       - { name: shots, label: SHOTS, type: number }
       - { name: rof, label: ROF, type: number }
       - { name: burst, label: BURST, type: boolean }
