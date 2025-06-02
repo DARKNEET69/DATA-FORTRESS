@@ -26,6 +26,7 @@ content:
     path: data/weapons.csv
     type: file
     format: datagrid
+    list: true
     view:
       fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
       primary: name
