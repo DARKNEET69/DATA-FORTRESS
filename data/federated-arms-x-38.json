@@ -1,13 +1,18 @@
 {
-  "id": "federated-arms-x-38",
-  "name": "Federated Arms X-38",
-  "tags": [
-    "weapon",
-    "firearm",
-    "pistol",
-    "light pistol"
-  ],
-  "image": "/media/images/Federated_Arms_X-38.webp",
+  "item": {
+    "id": "federated-arms-x-38",
+    "name": "Federated Arms X-38",
+    "tags": [
+      "weapon",
+      "firearm",
+      "pistol",
+      "light pistol"
+    ],
+    "image": "/media/images/Federated_Arms_X-38.webp",
+    "cost": 35,
+    "note": "Federated Arms X-38 - недорогой автоматический пистолет под безгильзовый патрон .38.",
+    "src": "SOF"
+  },
   "wa": 1,
   "con": "J",
   "avail": "E",
@@ -17,8 +22,5 @@
   "rof": 2,
   "burst": false,
   "rel": "ST",
-  "range": 50,
-  "cost": 35,
-  "src": "SOF",
-  "note": "Federated Arms X-38 - недорогой автоматический пистолет под безгильзовый патрон .38."
+  "range": 50
 }
