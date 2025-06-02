@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     view:
-      fields: [ item, wa, con, avail, damage, ammo, shots, rof, rel, range ]
+      fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
       primary: name
       sort: [ name, tags ]
     fields:
