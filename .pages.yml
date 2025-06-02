@@ -1,5 +1,9 @@
 media: media/images
 content:
+  - name: index
+    label: INDEX
+    path: index.html
+    type: file
   - name: data
     label: DATA
     path: data
