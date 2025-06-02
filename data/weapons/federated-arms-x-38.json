@@ -1,6 +1,6 @@
 {
   "item": {
-    "id": "881a1a85-abb4-40ff-ad6d-02388e21a242",
+    "id": "4ef30344-8b44-4bef-bf0d-a538996cb84c",
     "name": "Federated Arms X-38",
     "tags": [
       "weapon",
@@ -17,7 +17,7 @@
   "wa": 1,
   "con": "J",
   "avail": "E",
-  "ammo": "63bf1036-da2e-43e4-b23c-93ca84852e00",
+  "ammo": "null",
   "shots": 10,
   "rof": 2,
   "burst": false,
