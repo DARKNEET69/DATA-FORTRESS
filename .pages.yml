@@ -40,7 +40,7 @@ components:
     label: item
     type: object
     fields:
-      - { name: id, label: ID, type: uuid}
+      - { name: id, label: ID, type: uuid, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
       - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
       - { name: image, label: IMAGE, type: image }
