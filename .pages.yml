@@ -25,7 +25,7 @@ content:
     label: WEAPONS
     path: data/weapons.json
     type: file
-    format: json
+    format: json-frontmatter
     list: true
     view:
       fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
