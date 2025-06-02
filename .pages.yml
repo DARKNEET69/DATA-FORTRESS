@@ -5,6 +5,10 @@ content:
     path: data
     filename: '{primary}.json'
     type: collection
+    view:
+      fields: [ image, name, tags ]
+      primary: name
+      sort: [ name, tags ]
     fields:
       - { name: id, label: ID, type: string, required: true }
       - { name: name, label: NAME, type: string, required: true }
