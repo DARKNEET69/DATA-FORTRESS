@@ -25,8 +25,7 @@ content:
     label: WEAPONS
     path: data/weapons.json
     type: file
-    format: json-frontmatter
-    list: true
+    format: datagrid
     view:
       fields: [ item.image, item.name, item.tags, wa, con, avail, damage, ammo, shots, rof, rel, range, item.cost, item.src ]
       primary: name
