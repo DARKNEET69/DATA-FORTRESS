@@ -15,3 +15,13 @@ content:
       - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
       - { name: image, label: IMAGE, type: image }
       - { name: note, label: NOTE, type: rich-text }
+      - { name: wa, label: WA, type: number }
+      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
+      - { name: damage, label: DAMAGE, type: text }
+      - { name: ammo, label: AMMO, type: text }
+      - { name: shots, label: SHOTS, type: number }
+      - { name: burst, label: BURST, type: boolean }
+      - { name: rel, label: REL, options: { values: [ UR, ST, VR ] }}
+      - { name: range, label: RANGE, type: number }
+      - { name: cost, label: COST, type: number }
+      - { name: src, label: SRC, type: text }
