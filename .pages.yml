@@ -1,4 +1,4 @@
-media: files/media
+media: media/images
 content:
   - name: data
     label: DATA
@@ -18,3 +18,9 @@ content:
         type: string
         list:
           collapsible: false
+      - name: image
+        label: IMAGE
+        type: image
+        options:
+          multiple:
+            max: 6
