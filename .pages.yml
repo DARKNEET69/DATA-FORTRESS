@@ -14,3 +14,4 @@ content:
       - { name: name, label: NAME, type: string, required: true }
       - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}          
       - { name: image, label: IMAGE, type: image }
+      - { name: note, label: NOTE, type: rich-text }
