@@ -5,6 +5,7 @@ content:
     path: data/weapons
     filename: '{primary}.json'
     type: collection
+    component: ranged-weapon
     view:
       fields: [ item.image, item.name, weapon.wa, weapon.con, weapon.avail, weapon.damage, ranged-weapon.ammo, ranged-weapon.shots, ranged-weapon.rof, weapon.rel, ranged-weapon.range, item.cost ]
       primary: name
