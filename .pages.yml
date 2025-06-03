@@ -3,8 +3,8 @@ content:
   - name: data
     label: DATA
     path: data.csv
-    type: collection
-    format: datagrid
+    type: file
+    format: raw
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }        
