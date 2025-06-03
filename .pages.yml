@@ -9,17 +9,7 @@ content:
       fields: [ item.image, item.name, item.tags, wa, con, avail, shots, rof, rel, range, item.cost, item.src ]
       primary: name
     fields:
-      - { name: item, label: ITEM, component: item }
-      - { name: wa, label: WA, type: number }
-      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
-      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
-      - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: reference, options: { collection: ammunition, search: "{item.name}", value: "{item.id}", label: {"item.name"}}}
-      - { name: shots, label: SHOTS, type: number }
-      - { name: rof, label: ROF, type: number }
-      - { name: burst, label: BURST, type: boolean }
-      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
-      - { name: range, label: RANGE, type: number }
+      - { name: weapon, label: WEAPON, component: weapon }
   - name: ammunition
     label: Ammunition
     path: data/ammunition
@@ -48,3 +38,17 @@ components:
       - { name: note, label: NOTE, type: rich-text }
       - { name: src, label: SRC, type: string}
       - { name: homebrew, label: HOMEBREW, type: boolean }
+  weapon:
+    label: weapon
+    component: item
+    fields:     
+      - { name: wa, label: WA, type: number }
+      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
+      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
+      - { name: damage, label: DAMAGE, type: string }
+      - { name: ammo, label: AMMO, type: string }
+      - { name: shots, label: SHOTS, type: number }
+      - { name: rof, label: ROF, type: number }
+      - { name: burst, label: BURST, type: boolean }
+      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
+      - { name: range, label: RANGE, type: number }
