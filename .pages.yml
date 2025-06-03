@@ -5,6 +5,7 @@ content:
     path: data.csv
     type: file
     format: datagrid
+    list: true
     fields:
       - { name: item, label: ITEM, component: item }
       - { name: wa, label: WA, type: number }
