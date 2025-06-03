@@ -21,16 +21,18 @@ components:
       - { name: src, label: SRC, type: string}
       - { name: homebrew, label: HOMEBREW, type: boolean }
   weapon:
-    component: item
+    type: object
     fields:     
+      - { name: item, label: Item, component: item }
       - { name: wa, label: WA, type: number }
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
       - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
       - { name: damage, label: DAMAGE, type: string }
       - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
   ranged-weapon:
-    component: weapon
-    fields:
+    type: object
+    fields:     
+      - { name: weapon, label: Weapon, component: weapon }
       - { name: ammo, label: AMMO, type: string }
       - { name: shots, label: SHOTS, type: number }
       - { name: rof, label: ROF, type: number }
