@@ -18,5 +18,7 @@
   "burst": false,
   "rel": "ST",
   "range": 50,
+  "cost": 35,
+  "src": "SOF",
   "homebrew": false
 }
