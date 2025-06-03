@@ -19,7 +19,7 @@ components:
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
-      - { name: tags, label: TAGS, type: string, list: { min: 1, collapsible: false }}
+      - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true }}
       - { name: image, label: IMAGE, type: image }
       - { name: cost, label: COST, type: number }
       - { name: note, label: NOTE, type: rich-text }
