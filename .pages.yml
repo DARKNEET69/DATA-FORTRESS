@@ -9,9 +9,7 @@ content:
       fields: [ item.image, item.name, weapon.wa, weapon.con, weapon.avail, weapon.damage, ranged-weapon.ammo, ranged-weapon.shots, ranged-weapon.rof, weapon.rel, ranged-weapon.range, item.cost ]
       primary: name
     fields:
-      - { name: item, label: Item, component: item }
-      - { name: weapon, label: Weapon, component: weapon }
-      - { name: ranged-weapon, label: Ranged weapon, component: ranged-weapon }
+      - component: ranged-weapon
 
 components:
   item:
@@ -26,7 +24,7 @@ components:
       - { name: src, label: SRC, type: string}
       - { name: homebrew, label: HOMEBREW, type: boolean }
   weapon:
-    type: object
+    component: item
     fields:
       - { name: wa, label: WA, type: number }
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
@@ -34,7 +32,7 @@ components:
       - { name: damage, label: DAMAGE, type: string }
       - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
   ranged-weapon:
-    type: object
+    component: weapon
     fields:
       - { name: ammo, label: AMMO, type: string }
       - { name: shots, label: SHOTS, type: number }
