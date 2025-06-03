@@ -6,26 +6,22 @@ content:
     type: collection
     format: datagrid
     fields:
-      - name: items
-        type: object
-        fields:
-          - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
-          - { name: name, label: NAME, type: string, required: true }        
-          - { name: image, label: IMAGE, type: image }
-          - { name: type, label: TYPE, type: string }
-          - { name: wa, label: WA, type: number }
-          - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
-          - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
-          - { name: damage, label: DAMAGE, type: string }
-          - { name: ammo, label: AMMO, type: string }
-          - { name: shots, label: SHOTS, type: number }
-          - { name: rof, label: ROF, type: number }
-          - { name: burst, label: BURST, type: boolean }
-          - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
-          - { name: range, label: RANGE, type: number }
-          - { name: cost, label: COST, type: number }
-          - { name: note, label: NOTE, type: rich-text }
-    
+      - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
+      - { name: name, label: NAME, type: string, required: true }        
+      - { name: image, label: IMAGE, type: image }
+      - { name: type, label: TYPE, type: string }
+      - { name: wa, label: WA, type: number }
+      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
+      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
+      - { name: damage, label: DAMAGE, type: string }
+      - { name: ammo, label: AMMO, type: string }
+      - { name: shots, label: SHOTS, type: number }
+      - { name: rof, label: ROF, type: number }
+      - { name: burst, label: BURST, type: boolean }
+      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
+      - { name: range, label: RANGE, type: number }
+      - { name: cost, label: COST, type: number }
+      - { name: note, label: NOTE, type: rich-text }
 
 
   - name: weapons
