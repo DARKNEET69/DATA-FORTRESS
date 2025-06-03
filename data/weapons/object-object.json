@@ -1,0 +1,30 @@
+{
+  "item": {
+    "id": "12771c10-cb48-4517-ad29-3c0175eb6c47",
+    "name": "Federated Arms X-38",
+    "tags": [
+      "weapon",
+      "firearm",
+      "pistol",
+      "light pistol"
+    ],
+    "image": "/media/images/Federated_Arms_X-38.webp",
+    "cost": 35,
+    "src": "SOF",
+    "homebrew": false
+  },
+  "weapon": {
+    "wa": 1,
+    "con": "J",
+    "avail": "E",
+    "damage": "2d6",
+    "rel": "ST"
+  },
+  "ranged-weapon": {
+    "ammo": ".38",
+    "shots": 10,
+    "rof": 2,
+    "burst": false,
+    "range": 50
+  }
+}
