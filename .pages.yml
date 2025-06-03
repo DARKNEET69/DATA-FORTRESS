@@ -11,7 +11,7 @@ content:
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
-      - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true }}
+      - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true, values: [ weapon, cyberware, vehicle, gear ] }}
       - { name: image, label: IMAGE, type: image }
       - { name: wa, label: WA, type: number }
       - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
