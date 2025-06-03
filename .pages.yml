@@ -3,7 +3,7 @@ content:
   - name: data
     label: DATA
     path: data.csv
-    type: file
+    type: collection
     format: datagrid
     fields:
       - name: items
