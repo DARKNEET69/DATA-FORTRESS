@@ -5,6 +5,7 @@ content:
     path: data.csv
     type: file
     format: raw
+    list: true
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }        
