@@ -9,7 +9,7 @@ content:
       fields: [ item.image, item.name, weapon.wa, weapon.con, weapon.avail, weapon.damage, ranged-weapon.ammo, ranged-weapon.shots, ranged-weapon.rof, weapon.rel, ranged-weapon.range, item.cost ]
       primary: name
     fields:
-      - component: ranged-weapon
+    - { name: ranged-weapon, component: ranged-weapon }
 
 components:
   item:
