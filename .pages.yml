@@ -5,6 +5,9 @@ content:
     path: data/weapons
     filename: '{primary}.json'
     type: collection
+    view:
+      fields: [ item.image, item.name, weapon.wa, weapon.con, weapon.avail, weapon.damage, ranged-weapon.ammo, ranged-weapon.shots, ranged-weapon.rof, weapon.rel, ranged-weapon.range, item.cost ]
+      primary: name
     fields:
       - { name: item, label: Item, component: item }
       - { name: weapon, label: Weapon, component: weapon }
