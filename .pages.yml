@@ -5,7 +5,6 @@ content:
     path: data.csv
     type: file
     format: datagrid
-    list: true
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }        
