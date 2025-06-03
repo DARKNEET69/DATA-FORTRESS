@@ -6,7 +6,7 @@ content:
     filename: '{primary}.json'
     type: collection
     fields:
-      - { name: weapon, label: WEAPON, component: weapon }
+      - { name: weapon, label: WEAPON, component: ranged-weapon }
 
 components:
   item:
