@@ -155,6 +155,20 @@ th {
     border-bottom: 1px solid hsl(var(--border)); /* Keep bottom border for header row */
 }
 
+th:nth-child(1) { /* Image column */
+    width: 80px; /* Fixed width for image plus padding */
+    min-width: 80px;
+}
+
+th:nth-child(2) { /* Name column */
+    width: auto; /* Allow name to take remaining space */
+}
+
+th:nth-child(n+3) { /* WA, CON, Damage, etc. columns */
+    width: 80px; /* Example minimal width, adjust as needed */
+    min-width: 60px;
+}
+
 th.sort-asc::after,
 th.sort-desc::after {
     content: '';
@@ -272,6 +286,18 @@ tbody tr:hover td {
 }
 
 .rarity-r {
+    color: #d4af37; /* gold */
+}
+
+.card h3.rarity-c {
+    color: #6a8caf; /* gray-blue */
+}
+
+.card h3.rarity-p {
+    color: #a64ca6; /* purple */
+}
+
+.card h3.rarity-r {
     color: #d4af37; /* gold */
 }
 
