@@ -155,19 +155,59 @@ th {
     border-bottom: 1px solid hsl(var(--border)); /* Keep bottom border for header row */
 }
 
-th:nth-child(1) { /* Image column */
-    width: 80px; /* Fixed width for image plus padding */
+/* Apply width styles to both th and td */
+th:nth-child(1),
+td:nth-child(1) { /* Image column */
+    width: 80px;
     min-width: 80px;
+    max-width: 80px;
 }
 
-th:nth-child(2) { /* Name column */
+th:nth-child(2),
+td:nth-child(2) { /* Name column */
     width: auto; /* Allow name to take remaining space */
 }
 
-th:nth-child(n+3) { /* WA, CON, Damage, etc. columns */
-    width: 80px; /* Example minimal width, adjust as needed */
+th:nth-child(3), td:nth-child(3) { /* WA */
+    width: 70px;
     min-width: 60px;
 }
+th:nth-child(4), td:nth-child(4) { /* CON */
+    width: 70px;
+    min-width: 60px;
+}
+th:nth-child(5), td:nth-child(5) { /* Damage */
+    width: 90px;
+    min-width: 70px;
+}
+th:nth-child(6), td:nth-child(6) { /* Ammo */
+    width: 80px;
+    min-width: 70px;
+}
+th:nth-child(7), td:nth-child(7) { /* Shots */
+    width: 70px;
+    min-width: 60px;
+}
+th:nth-child(8), td:nth-child(8) { /* ROF */
+    width: 70px;
+    min-width: 60px;
+}
+th:nth-child(9), td:nth-child(9) { /* Rel */
+    width: 70px;
+    min-width: 60px;
+}
+th:nth-child(10), td:nth-child(10) { /* Range */
+    width: 80px;
+    min-width: 70px;
+}
+th:nth-child(11), td:nth-child(11) { /* Cost */
+    width: 90px;
+    min-width: 70px;
+}
+
+/* Make sure total of fixed widths allows space for the auto column */
+/* Total fixed width: 80 + 70*6 + 90*3 = 80 + 420 + 270 = 770px */
+/* The container width needs to be at least 770px + some minimal width for the name column */
 
 th.sort-asc::after,
 th.sort-desc::after {
