@@ -1,4 +1,4 @@
-/* Minimalist modern dark theme inspired by Spotify */
+/* Redesigned table styles for clarity and modern dark theme */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
@@ -64,81 +64,36 @@ header {
     box-shadow: none;
 }
 
-.view-toggle label {
-    display: block;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    font-weight: 600;
-    color: #b3b3b3;
-    transition: color 0.3s ease;
-}
-
-.view-toggle label:hover {
-    color: #1db954;
-}
-
-input[type="radio"] {
-    margin-right: 0.5rem;
-    accent-color: #1db954;
-}
-
-.search-sort-filter {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-input[type="search"], select {
-    padding: 0.75rem;
-    border-radius: 20px;
-    border: none;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-    background: #282828;
-    color: #b3b3b3;
-    transition: background-color 0.3s ease;
-}
-
-input[type="search"]:focus, select:focus {
-    outline: none;
-    background-color: #1db954;
-    color: #121212;
-}
-
+/* Table styles */
 table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     border: 1px solid #444;
+    table-layout: fixed;
+    font-size: 0.95rem;
+}
+
+thead {
+    background-color: #1db954;
+    color: #121212;
 }
 
 th, td {
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: middle;
-    background: #181818;
-    color: #b3b3b3;
     border: 1px solid #444;
-    border-radius: 0;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #222;
-}
-
-tbody tr:hover {
-    background-color: #333;
-    color: #1db954;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 th {
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    color: #1db954;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     position: relative;
     user-select: none;
 }
@@ -153,20 +108,33 @@ th.sort-desc::after {
     height: 0;
     border-style: solid;
     border-width: 6px 5px 0 5px;
-    border-color: #1db954 transparent transparent transparent;
+    border-color: #121212 transparent transparent transparent;
     transform: translateY(-50%);
 }
 
 th.sort-desc::after {
     border-width: 0 5px 6px 5px;
-    border-color: transparent transparent #1db954 transparent;
+    border-color: transparent transparent #121212 transparent;
 }
 
-tr:hover td {
-    background: #282828;
-    color: #1db954;
+tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
 }
 
+tbody tr:nth-child(odd) {
+    background-color: #121212;
+}
+
+tbody tr:hover {
+    background-color: #1db954;
+    color: #121212;
+}
+
+tbody tr:hover td {
+    color: #121212;
+}
+
+/* Card styles */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -176,7 +144,7 @@ tr:hover td {
 
 .card {
     background: #181818;
-    border-radius: 15px;
+    border-radius: 12px;
     width: 240px;
     padding: 1.5rem;
     display: flex;
@@ -184,10 +152,12 @@ tr:hover td {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: #b3b3b3;
 }
 
 .card:hover {
-    background: #282828;
+    background: #1db954;
+    color: #121212;
 }
 
 .card img {
@@ -202,7 +172,6 @@ tr:hover td {
     margin: 0.5rem 0 1rem 0;
     font-size: 1.3rem;
     text-align: center;
-    color: #b3b3b3;
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -212,9 +181,10 @@ tr:hover td {
     font-size: 1rem;
     width: 100%;
     word-wrap: break-word;
-    color: #999999;
+    color: inherit;
 }
 
+/* Selected item details */
 #selectedItemDetails {
     padding: 1rem;
     font-size: 1rem;
