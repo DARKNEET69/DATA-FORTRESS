@@ -33,7 +33,7 @@ content:
     type: file
     path: data.json
     format: json
-    list::
+    list:
       collapsible:
         collapsed: true # Default collapsed state
         summary: "{title} ({index})" # Template string using field values and {index}
