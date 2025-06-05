@@ -127,41 +127,27 @@ async function loadAllData() {
     allItems = [];
     categories = new Set();
 
-    // List of categories based on folder names inside data folder
-    const categoryFolders = ['ammunition', 'armor', 'cyberware', 'vehicles', 'weapons'];
-
-    for (const category of categoryFolders) {
-        const items = await loadCategoryData(category);
-        items.forEach(item => {
-            item.category = category;
-            allItems.push(item);
-            categories.add(category);
-        });
-    }
-}
-
-async function loadCategoryData(category) {
-    const items = [];
     try {
-        // Fetch the index file for the category
-        const indexResponse = await fetch(dataFolder + '/' + category + '/index.json');
-        if (!indexResponse.ok) {
-console.warn('Index file not found for category: ' + category);
-            return items;
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            console.error('Failed to load data.json');
+            return;
         }
-        const fileList = await indexResponse.json();
-        for (const file of fileList) {
-            const response = await fetch(dataFolder + '/' + category + '/' + file);
-            if (response.ok) {
-                const data = await response.json();
-                items.push(data);
+        const data = await response.json();
+        allItems = data;
+
+        // Extract categories from data
+        data.forEach(item => {
+            if (item.category) {
+                categories.add(item.category);
             }
-        }
+        });
     } catch (error) {
-        console.error('Error loading data for category', category, error);
+        console.error('Error loading data.json', error);
     }
-    return items;
 }
+
+// Remove loadCategoryData function as it's no longer needed
 
 function populateCategoryFilter() {
     const filter = document.getElementById('categoryFilter');
