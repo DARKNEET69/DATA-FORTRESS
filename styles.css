@@ -37,35 +37,72 @@ header {
 .container {
     flex: 1;
     display: flex;
+    flex-direction: row;
     height: calc(100vh - 60px);
 }
 
 .sidebar {
-    background-color: #181818;
+    background-color: hsl(var(--card));
     padding: 1rem;
     overflow-y: auto;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
 .left-sidebar {
     width: 280px;
-    border-right: 1px solid #282828;
+    border-right: 1px solid hsl(var(--border));
 }
 
 .right-sidebar {
     width: 320px;
-    border-left: 1px solid #282828;
-    color: #b3b3b3;
+    border-left: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
 }
 
 .main-content {
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    background: #121212;
-    border-radius: 8px;
+    background: hsl(var(--background));
+    border-radius: 0;
     box-shadow: none;
+}
+
+/* General form element styles for consistency */
+input[type="search"], select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: hsl(var(--radius));
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem; /* Add some space below form elements */
+}
+
+input[type="search"]::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+.view-toggle {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem; /* Space below toggle */
+}
+
+.view-toggle label {
+    font-size: 0.95rem;
+    color: hsl(var(--foreground));
+}
+
+.search-sort-filter {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Table styles */
@@ -78,6 +115,7 @@ table {
     font-size: 0.95rem;
     border-radius: hsl(var(--radius));
     overflow: hidden;
+    margin-top: 0; /* Remove default table margin */
 }
 
 thead {
@@ -89,7 +127,7 @@ th, td {
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: middle;
-    border: 1px solid hsl(var(--border));
+    border: none; /* Remove cell borders */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -102,9 +140,9 @@ th {
     letter-spacing: 0.5px;
     position: relative;
     user-select: none;
-    background-color: hsl(var(--muted)); /* Subtle different background for headers */
+    background-color: hsl(var(--muted));
     color: hsl(var(--muted-foreground));
-    border-color: hsl(var(--border));
+    border-bottom: 1px solid hsl(var(--border)); /* Keep bottom border for header row */
 }
 
 th.sort-asc::after,
@@ -245,12 +283,14 @@ tbody tr:hover td {
         flex-direction: column;
         height: auto;
     }
-    .left-sidebar, .right-sidebar {
+    .left-sidebar,
+    .right-sidebar {
         width: 100%;
         border: none;
-        border-bottom: 1px solid #282828;
+        border-bottom: 1px solid hsl(var(--border));
     }
     .main-content {
         padding: 0.5rem;
+        border-radius: 0;
     }
 }
