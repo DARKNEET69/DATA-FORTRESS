@@ -155,7 +155,12 @@ function renderTable(items) {
         const imageTd = document.createElement('td');
         if (item.image) {
             const img = document.createElement('img');
-            img.src = item.image;
+            // Prepend base path if image path starts with /media
+            if (item.image.startsWith('/media')) {
+                img.src = '/DATA-FORTRESS' + item.image;
+            } else {
+                img.src = item.image;
+            }
             img.alt = item.name;
             img.style.maxWidth = '60px';
             img.style.maxHeight = '40px';
@@ -176,7 +181,12 @@ function renderCards(items) {
 
         if (item.image) {
             const img = document.createElement('img');
-            img.src = item.image;
+            // Prepend base path if image path starts with /media
+            if (item.image.startsWith('/media')) {
+                img.src = '/DATA-FORTRESS' + item.image;
+            } else {
+                img.src = item.image;
+            }
             img.alt = item.name;
             card.appendChild(img);
         }
