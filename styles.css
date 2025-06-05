@@ -159,8 +159,9 @@ th {
 /* Apply width styles to both th and td */
 th:nth-child(1),
 td:nth-child(1) { /* Image column */
-    width: 80px;
-    min-width: 80px; /* Ensure image column doesn't shrink */
+    width: 140px; /* Further increased width to fit header */
+    min-width: 140px; /* Ensure it doesn't shrink */
+    max-width: 140px; /* Keep it fixed */
 }
 
 th:nth-child(2),
