@@ -1,9 +1,9 @@
 body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Share Tech Mono', monospace;
     margin: 0;
     padding: 0;
-    background: #121212;
-    color: #d0d0d0;
+    background-color: #000000;
+    color: #00ffff;
     height: 100vh;
     display: flex;
     flex-direction: column;
