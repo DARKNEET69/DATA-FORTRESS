@@ -1,3 +1,7 @@
+:root{
+--background:0 0% 100%;--foreground:0 0% 3.9%;--card:0 0% 100%;--card-foreground:0 0% 3.9%;--popover:0 0% 100%;--popover-foreground:0 0% 3.9%;--primary:0 0% 9%;--primary-foreground:0 0% 98%;--secondary:0 0% 96.1%;--secondary-foreground:0 0% 9%;--muted:0 0% 96.1%;--muted-foreground:0 0% 45.1%;--accent:0 0% 96.1%;--accent-foreground:0 0% 9%;--destructive:0 84.2% 60.2%;--destructive-foreground:0 0% 98%;--border:0 0% 85.8%;--input:0 0% 85.8%;--ring:0 0% 3.9%;--radius:0.75rem}.dark{
+--background:0 0% 3.9%;--foreground:0 0% 98%;--card:0 0% 3.9%;--card-foreground:0 0% 98%;--popover:0 0% 3.9%;--popover-foreground:0 98%;--primary:0 0% 98%;--primary-foreground:0 0% 9%;--secondary:0 0% 14.9%;--secondary-foreground:0 0% 98%;--muted:0 0% 14.9%;--muted-foreground:0 0% 63.9%;--accent:0 0% 14.9%;--accent-foreground:0 0% 98%;--destructive:0 62.8% 30.6%;--destructive-foreground:0 0% 98%;--border:0 0% 19.9%;--input:0 0% 19.9%;--ring:0 0% 83.1%;}
+
 /* Redesigned table styles for clarity and modern dark theme */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
@@ -6,23 +10,23 @@ body {
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #b3b3b3;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 header {
-    background-color: #181818;
+    background-color: hsl(var(--card));
     padding: 1rem;
     text-align: center;
-    color: #1db954;
+    color: hsl(var(--primary));
     font-weight: 600;
     font-size: 2vw;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    border-bottom: 1px solid #282828;
+    border-bottom: 1px solid hsl(var(--border));
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -67,71 +71,84 @@ header {
 /* Table styles */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid #444;
+    border: 1px solid hsl(var(--border));
     table-layout: fixed;
     font-size: 0.95rem;
+    border-radius: hsl(var(--radius));
+    overflow: hidden;
 }
 
 thead {
-    background-color: #1db954;
-    color: #121212;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
 }
 
 th, td {
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: middle;
-    border: 1px solid #444;
+    border: 1px solid hsl(var(--border));
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 th {
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.5px;
     position: relative;
     user-select: none;
+    background-color: hsl(var(--muted)); /* Subtle different background for headers */
+    color: hsl(var(--muted-foreground));
+    border-color: hsl(var(--border));
 }
 
 th.sort-asc::after,
 th.sort-desc::after {
     content: '';
     position: absolute;
-    right: 8px;
+    right: 1rem;
     top: 50%;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 6px 5px 0 5px;
-    border-color: #121212 transparent transparent transparent;
+    border-color: hsl(var(--muted-foreground)) transparent transparent transparent;
     transform: translateY(-50%);
 }
 
 th.sort-desc::after {
     border-width: 0 5px 6px 5px;
-    border-color: transparent transparent #121212 transparent;
+    border-color: transparent transparent hsl(var(--muted-foreground)) transparent;
+}
+
+tbody tr {
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+tbody tr:last-child {
+    border-bottom: none;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #1a1a1a;
+    background-color: hsl(var(--background));
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #121212;
+    background-color: hsl(var(--card));
 }
 
 tbody tr:hover {
-    background-color: #1db954;
-    color: #121212;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
 }
 
 tbody tr:hover td {
-    color: #121212;
+    color: hsl(var(--accent-foreground));
 }
 
 /* Card styles */
@@ -143,45 +160,51 @@ tbody tr:hover td {
 }
 
 .card {
-    background: #181818;
-    border-radius: 12px;
+    background: hsl(var(--card));
+    border-radius: hsl(var(--radius));
     width: 240px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #b3b3b3;
+    transition: all 0.3s ease;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* Subtle shadow */
 }
 
 .card:hover {
-    background: #1db954;
-    color: #121212;
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    transform: translateY(-2px); /* Optional subtle hover effect */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05); /* Increased shadow on hover */
 }
 
 .card img {
-    max-width: 200px;
-    max-height: 140px;
+    max-width: 100%;
+    max-height: 140px; /* Keep original max height */
     object-fit: contain;
     margin-bottom: 1rem;
-    border-radius: 10px;
+    border-radius: hsl(var(--radius)); /* Match card border radius */
 }
 
 .card h3 {
     margin: 0.5rem 0 1rem 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Slightly adjusted size */
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px; /* Slightly reduced spacing */
+    color: inherit; /* Inherit color from card */
 }
 
 .card p {
     margin: 0.3rem 0;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Slightly adjusted size */
     width: 100%;
     word-wrap: break-word;
-    color: inherit;
+    color: inherit; /* Inherit color from card */
+    text-align: center;
 }
 
 /* Selected item details */
