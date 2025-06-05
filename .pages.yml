@@ -40,7 +40,7 @@ content:
     list:
       collapsible:
         collapsed: true # Default collapsed state
-        summary: "{title} ({index})" # Template string using field values and {index}
+        summary: "Item {index}" # Template string using field values and {index}
     fields:
     - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
     - { name: name, label: NAME, type: string, required: true }
