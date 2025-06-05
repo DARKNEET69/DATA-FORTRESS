@@ -1,24 +1,28 @@
+/* Minimalist modern dark theme inspired by Spotify */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
 body {
-    font-family: 'Orbitron', Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
+    background-color: #121212;
+    color: #b3b3b3;
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 header {
-    background: linear-gradient(90deg, #1f1f1f, #2a2a2a);
+    background-color: #181818;
     padding: 1rem;
     text-align: center;
-    color: #f0f0f0;
+    color: #1db954;
     font-weight: 600;
     font-size: 1.8rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #282828;
 }
 
 .container {
@@ -28,31 +32,31 @@ header {
 }
 
 .sidebar {
-    background: #1e1e1e;
+    background-color: #181818;
     padding: 1rem;
     overflow-y: auto;
     border-radius: 8px;
-    box-shadow: inset 0 0 10px #00000080;
+    box-shadow: none;
 }
 
 .left-sidebar {
     width: 280px;
-    border-right: 1px solid #333;
+    border-right: 1px solid #282828;
 }
 
 .right-sidebar {
     width: 320px;
-    border-left: 1px solid #333;
-    color: #c0c0c0;
+    border-left: 1px solid #282828;
+    color: #b3b3b3;
 }
 
 .main-content {
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    background: #181818;
+    background: #121212;
     border-radius: 8px;
-    box-shadow: 0 0 10px #00000080;
+    box-shadow: none;
 }
 
 .view-toggle label {
@@ -60,17 +64,17 @@ header {
     margin-bottom: 1rem;
     cursor: pointer;
     font-weight: 600;
-    color: #c0c0c0;
+    color: #b3b3b3;
     transition: color 0.3s ease;
 }
 
 .view-toggle label:hover {
-    color: #ffffff;
+    color: #1db954;
 }
 
 input[type="radio"] {
     margin-right: 0.5rem;
-    accent-color: #888;
+    accent-color: #1db954;
 }
 
 .search-sort-filter {
@@ -82,49 +86,48 @@ input[type="radio"] {
 
 input[type="search"], select {
     padding: 0.75rem;
-    border-radius: 6px;
-    border: 1px solid #444;
+    border-radius: 20px;
+    border: none;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
-    background: #2a2a2a;
-    color: #e0e0e0;
-    transition: border-color 0.3s ease;
+    background: #282828;
+    color: #b3b3b3;
+    transition: background-color 0.3s ease;
 }
 
 input[type="search"]:focus, select:focus {
     outline: none;
-    border-color: #666;
-    color: #fff;
+    background-color: #1db954;
+    color: #121212;
 }
 
 table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 8px;
+    border-spacing: 0 10px;
 }
 
 th, td {
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: middle;
-    background: #2a2a2a;
-    color: #c0c0c0;
-    border-radius: 6px;
+    background: #181818;
+    color: #b3b3b3;
+    border-radius: 10px;
 }
 
 th {
-    background: #3a3a3a;
     font-weight: 600;
     cursor: pointer;
-    color: #e0e0e0;
+    color: #1db954;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 tr:hover td {
-    background: #3f3f3f;
-    color: #fff;
+    background: #282828;
+    color: #1db954;
 }
 
 .card-container {
@@ -135,21 +138,19 @@ tr:hover td {
 }
 
 .card {
-    background: #2a2a2a;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px #00000080;
+    background: #181818;
+    border-radius: 15px;
     width: 240px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px #000000cc;
+    background: #282828;
 }
 
 .card img {
@@ -157,16 +158,16 @@ tr:hover td {
     max-height: 140px;
     object-fit: contain;
     margin-bottom: 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .card h3 {
     margin: 0.5rem 0 1rem 0;
     font-size: 1.3rem;
     text-align: center;
-    color: #e0e0e0;
+    color: #b3b3b3;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
 }
 
 .card p {
@@ -174,13 +175,13 @@ tr:hover td {
     font-size: 1rem;
     width: 100%;
     word-wrap: break-word;
-    color: #b0b0b0;
+    color: #999999;
 }
 
 #selectedItemDetails {
     padding: 1rem;
     font-size: 1rem;
-    color: #b0b0b0;
+    color: #b3b3b3;
 }
 
 #selectedItemDetails p, #selectedItemDetails h3 {
@@ -193,8 +194,7 @@ tr:hover td {
     object-fit: contain;
     display: block;
     margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #00000080;
+    border-radius: 10px;
 }
 
 @media (max-width: 900px) {
@@ -205,7 +205,7 @@ tr:hover td {
     .left-sidebar, .right-sidebar {
         width: 100%;
         border: none;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #282828;
     }
     .main-content {
         padding: 0.5rem;
