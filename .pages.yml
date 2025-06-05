@@ -1,56 +1,60 @@
 media: media/images
 content:
-  - name: weapons
-    label: Weapons
-    path: data/weapons
-    filename: '{primary}.json'
-    type: collection
-    view:
-      fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
-      primary: name
-    fields:
-      - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
-      - { name: name, label: NAME, type: string, required: true }
-      - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true, values: [ weapon, cyberware, vehicle, gear ] }}
-      - { name: image, label: IMAGE, type: image }
-      - { name: wa, label: WA, type: number }
-      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
-      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
-      - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: string }
-      - { name: shots, label: SHOTS, type: number }
-      - { name: rof, label: ROF, type: number }
-      - { name: burst, label: BURST, type: boolean }
-      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
-      - { name: range, label: RANGE, type: number }
-      - { name: cost, label: COST, type: number }
-      - { name: src, label: SRC, type: string}
-      - { name: homebrew, label: HOMEBREW, type: boolean }
-      - { name: note, label: NOTE, type: rich-text }
+- name: weapons
+  label: Weapons
+  path: data/weapons
+  filename: '{primary}.json'
+  type: collection
+  view:
+    fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
+    primary: name
+  fields:
+  - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
+  - { name: name, label: NAME, type: string, required: true }
+  - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true, values: [ weapon, cyberware, vehicle, gear ] }}
+  - { name: image, label: IMAGE, type: image }
+  - { name: wa, label: WA, type: number }
+  - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
+  - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
+  - { name: damage, label: DAMAGE, type: string }
+  - { name: ammo, label: AMMO, type: string }
+  - { name: shots, label: SHOTS, type: number }
+  - { name: rof, label: ROF, type: number }
+  - { name: burst, label: BURST, type: boolean }
+  - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
+  - { name: range, label: RANGE, type: number }
+  - { name: cost, label: COST, type: number }
+  - { name: src, label: SRC, type: string}
+  - { name: homebrew, label: HOMEBREW, type: boolean }
+  - { name: note, label: NOTE, type: rich-text }
 
-  - name: data
-    label: Data
-    type: file
-    path: data.json
-    format: json
+- name: data
+  label: Data
+  type: file
+  path: data.json
+  format: json
+  fields:
+  - name: item
+    label: Item
+    type: object   
     list:
       collapsible:
         collapsed: true # Default collapsed state
-        summary: "{title} ({index})" # Template string using field values and {index}
+        summary: "{name} ({index})" # Template string using field values and {index}
     fields:
-      - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
-      - { name: name, label: NAME, type: string, required: true }
-      - { name: image, label: IMAGE, type: image }
-      - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true, values: [ weapon, cyberware, vehicle, gear ] }}
-      - { name: wa, label: WA, type: number }
-      - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
-      - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
-      - { name: damage, label: DAMAGE, type: string }
-      - { name: ammo, label: AMMO, type: string }
-      - { name: shots, label: SHOTS, type: number }
-      - { name: rof, label: ROF, type: number }
-      - { name: burst, label: BURST, type: boolean }
-      - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
-      - { name: range, label: RANGE, type: number }
-      - { name: cost, label: COST, type: number }
-      - { name: note, label: NOTE, type: rich-text }
+    - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
+    - { name: name, label: NAME, type: string, required: true }
+    - { name: image, label: IMAGE, type: image }
+    - { name: tags, label: TAGS, type: select, options: { creatable: true, multiple: true, values: [ weapon, cyberware, vehicle, gear ] }}
+    - { name: wa, label: WA, type: number }
+    - { name: con, label: CON, type: select, options: { values: [ P, J, L, N ] }}
+    - { name: avail, label: AVAIL, type: select, options: { values: [ E, C, P, R ] }}
+    - { name: damage, label: DAMAGE, type: string }
+    - { name: ammo, label: AMMO, type: string }
+    - { name: shots, label: SHOTS, type: number }
+    - { name: rof, label: ROF, type: number }
+    - { name: burst, label: BURST, type: boolean }
+    - { name: rel, label: REL, type: select, options: { values: [ UR, ST, VR ] }}
+    - { name: range, label: RANGE, type: number }
+    - { name: cost, label: COST, type: number }
+    - { name: note, label: NOTE, type: rich-text }
