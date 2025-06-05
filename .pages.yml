@@ -33,7 +33,7 @@ content:
     label: Data
     path: data.csv
     type: file
-    format: raw
+    format: datagrid
     list:
       collapsible:
         collapsed: true
