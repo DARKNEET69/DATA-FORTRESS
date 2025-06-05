@@ -33,7 +33,7 @@ content:
     label: Data
     path: data.csv
     type: file
-    format: raw
+    format: datagrid
     list: true
     view:
       fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
