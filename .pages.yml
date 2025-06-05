@@ -44,7 +44,6 @@ content:
     fields:
       - name: item
         label: ITEM
-        hidden: true
         fields:
           - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
           - { name: name, label: NAME, type: string, required: true }
