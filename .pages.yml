@@ -28,16 +28,11 @@ content:
       - { name: homebrew, label: HOMEBREW, type: boolean }
       - { name: note, label: NOTE, type: rich-text }
 
-      
   - name: data
     label: Data
-    path: data.csv
     type: file
-    format: datagrid
     list: true
-    view:
-      fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
-      primary: name
+    path: data.json
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
