@@ -493,12 +493,12 @@ function renderSelectedItem(item) {
         container.appendChild(con);
     }
 
-    // Remove Avail text display in selected item details
-    // if (item.avail) {
-    //     const avail = document.createElement('p');
-    //     avail.textContent = 'Avail: ' + item.avail;
-    //     container.appendChild(avail);
-    // }
+    // Add Avail text display back in selected item details
+    if (item.avail) {
+        const avail = document.createElement('p');
+        avail.textContent = 'Avail: ' + item.avail;
+        container.appendChild(avail);
+    }
 
     // Damage
     if (item.damage) {
