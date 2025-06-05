@@ -33,9 +33,10 @@ content:
     type: file
     path: data.json
     list: true
-    view:
-      fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
-      primary: name
+    list:
+      collapsible:
+        collapsed:
+        summary: "{title} ({index})"
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
