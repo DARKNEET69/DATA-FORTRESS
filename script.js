@@ -336,9 +336,26 @@ function renderCards(items) {
             card.appendChild(img);
         }
 
-        // Name
+        // Name with rarity color class based on avail
         const name = document.createElement('h3');
         name.textContent = item.name || '';
+        if (item.avail) {
+            const avail = item.avail.toUpperCase();
+            switch (avail) {
+                case 'C':
+                    name.classList.add('rarity-c');
+                    break;
+                case 'P':
+                    name.classList.add('rarity-p');
+                    break;
+                case 'R':
+                    name.classList.add('rarity-r');
+                    break;
+                default:
+                    // E or others: normal text color
+                    break;
+            }
+        }
         card.appendChild(name);
 
         // WA with + prefix if non-negative
