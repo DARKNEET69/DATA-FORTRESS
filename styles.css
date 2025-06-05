@@ -191,6 +191,19 @@ tbody tr:hover td {
     color: #b3b3b3;
 }
 
+/* Rarity color classes for avail */
+.rarity-c {
+    color: #6a8caf; /* gray-blue */
+}
+
+.rarity-p {
+    color: #a64ca6; /* purple */
+}
+
+.rarity-r {
+    color: #d4af37; /* gold */
+}
+
 #selectedItemDetails p, #selectedItemDetails h3 {
     margin: 0.5rem 0;
 }
