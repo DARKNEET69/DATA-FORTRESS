@@ -1,9 +1,22 @@
-{
-  "item": [
-    {
-      "id": "8ae7aa9b-34d7-4f8f-8d74-076f26a33eb4",
-      "name": "X-38",
-      "burst": false
-    }
-  ]
-}
+[
+  {
+    "id": "e4e193f7-8dc8-4f29-8845-31c3fea8b368",
+    "name": "Federated Arms X-38",
+    "image": "/media/images/Federated_Arms_X-38.webp",
+    "tags": [
+      "weapon"
+    ],
+    "wa": 1,
+    "con": "J",
+    "avail": "E",
+    "damage": "2d6",
+    "ammo": ".38",
+    "shots": 10,
+    "rof": 2,
+    "burst": false,
+    "rel": "ST",
+    "range": 50,
+    "cost": 32,
+    "note": "Federated Arms X-38 - недорогой автоматический пистолет под безгильзовый патрон .38."
+  }
+]
