@@ -238,7 +238,7 @@ thead {
 }
 
 th, td {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.8rem; /* Slightly reduced horizontal padding */
     text-align: left;
     vertical-align: middle;
     border: none; /* Remove all borders initially */
@@ -259,14 +259,20 @@ th {
     background-color: hsl(var(--input-background));
     color: hsl(var(--primary-accent));
     border-bottom: 1px solid hsl(var(--border-color)); /* Ensure header has bottom border */
+    border-right: 1px solid hsl(var(--border-color)); /* Add right border to th */
+}
+
+th:last-child {
+    border-right: none; /* Remove right border for the last th */
 }
 
 td {
     border-bottom: 1px solid hsl(var(--border-color)); /* Keep bottom border for td to separate rows */
+    border-right: 1px solid hsl(var(--border-color)); /* Add right border to td */
 }
 
-td:not(:last-child) {
-    border-right: 1px solid hsl(var(--border-color)); /* Add right border to td cells except the last one */
+td:last-child {
+    border-right: none; /* Remove right border for the last td */
 }
 
 tbody tr:last-child td {
@@ -276,30 +282,30 @@ tbody tr:last-child td {
 /* Refined column width styles to prevent header truncation */
 th:nth-child(1),
 td:nth-child(1) { /* Image column */
-    width: 170px; /* Increased fixed width */
-    min-width: 150px; /* Increased min-width */
-    max-width: 200px; /* Increased max-width */
+    width: 180px; /* Increased fixed width */
+    min-width: 160px; /* Increased min-width */
+    max-width: 220px; /* Increased max-width */
 }
 
 th:nth-child(2),
 td:nth-child(2) { /* Name column */
     width: auto; /* Take remaining space */
-    min-width: 220px; /* Increased minimal width for name */
+    min-width: 240px; /* Increased minimal width for name */
 }
 
 th:nth-child(n+3),
 td:nth-child(n+3) { /* Other columns */
-    width: 110px; /* Adjusted example width */
-    min-width: 105px; /* Increased min-width */
-    max-width: 140px; /* Adjusted max-width */
+    width: 120px; /* Adjusted example width */
+    min-width: 115px; /* Increased min-width */
+    max-width: 150px; /* Adjusted max-width */
 }
 
 /* Adjust specific columns that were problematic */
 th:nth-child(5), td:nth-child(5) { /* Damage */
-    min-width: 130px; /* Further increased min-width */
+    min-width: 140px; /* Further increased min-width */
 }
 th:nth-child(7), td:nth-child(7) { /* Shots */
-    min-width: 120px; /* Further increased min-width */
+    min-width: 130px; /* Further increased min-width */
 }
 
 th.sort-asc::after,
