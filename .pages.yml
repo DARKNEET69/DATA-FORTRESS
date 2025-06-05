@@ -36,6 +36,7 @@ content:
     format: datagrid
     list:
       collapsible:
+        collapsed: true
         summary: "{name} ({index})"
     view:
       fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
