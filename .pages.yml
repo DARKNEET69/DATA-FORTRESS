@@ -33,7 +33,7 @@ content:
     type: file
     list:
       collapsible:
-        collapsed: true
+        collapsed: false
         summary: "{title} ({index})"
     path: data.json
     fields:
