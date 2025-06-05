@@ -1,73 +1,47 @@
+/* Cyberpunk 2020 inspired styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
 :root{
---background: 0 0% 100%; /* White for light theme */
---foreground: 0 0% 3.9%;  /* Dark gray for light theme */
---card: 0 0% 100%;        /* White card background */
---card-foreground: 0 0% 3.9%; /* Dark gray text on card */
---popover: 0 0% 100%;     /* White popover */
---popover-foreground: 0 0% 3.9%; /* Dark gray text on popover */
---primary: 0 0% 9%;       /* Dark primary for light theme */
---primary-foreground: 0 0% 98%; /* White text on primary */
---secondary: 0 0% 96.1%;   /* Light gray secondary */
---secondary-foreground: 0 0% 9%; /* Dark gray text on secondary */
---muted: 0 0% 96.1%;      /* Light gray muted */
---muted-foreground: 0 0% 45.1%; /* Medium gray muted text */
---accent: 0 0% 96.1%;     /* Light gray accent */
---accent-foreground: 0 0% 9%; /* Dark gray text on accent */
---destructive: 0 84.2% 60.2%; /* Red for destructive */
---destructive-foreground: 0 0% 98%; /* White text on destructive */
---border: 0 0% 85.8%;     /* Light gray border */
---input: 0 0% 85.8%;      /* Light gray input border */
---ring: 0 0% 3.9%;        /* Dark ring color */
---radius: 0.5rem;         /* Slightly smaller radius */
+    /* Cyberpunk Palette - Placeholder, will refine */
+    --background: 0 0% 5%;     /* Very dark almost black */
+    --foreground: 210 20% 98%; /* Light text */
+    --primary-accent: 185 100% 50%; /* Cyan */
+    --secondary-accent: 330 100% 50%; /* Pink/Magenta */
+    --border-color: 210 5% 30%; /* Dark gray border */
+    --card-background: 210 5% 8%; /* Slightly lighter dark for cards/blocks */
+    --input-background: 210 5% 12%; /* Darker input fields */
+    --input-border: 210 5% 30%; /* Dark gray input border */
+    --placeholder-color: 210 5% 50%; /* Muted gray placeholder */
+    --hover-background: 210 5% 15%; /* Slightly lighter on hover */
+    --active-border: var(--primary-accent); /* Cyan border on active */
+    --focus-ring: hsla(185, 100%, 50%, 0.5); /* Cyan glow */
+    --radius: 0; /* Sharp corners */
 }
-.dark{
---background: 220 14.3% 4.1%;    /* Dark background */
---foreground: 210 20% 98%;     /* Light text */
---card: 220 14.3% 5%;          /* Slightly lighter dark for cards */
---card-foreground: 210 20% 98%; /* Light text on cards */
---popover: 220 14.3% 5%;       /* Slightly lighter dark for popover */
---popover-foreground: 210 20% 98%; /* Light text on popover */
---primary: 210 20% 98%;        /* Light primary accent */
---primary-foreground: 220 14.3% 5%; /* Dark text on primary */
---secondary: 215 27.9% 16.9%;    /* Darker gray secondary */
---secondary-foreground: 210 20% 98%; /* Light text on secondary */
---muted: 215 27.9% 16.9%;      /* Darker gray muted */
---muted-foreground: 217.2 10% 60.9%; /* Muted gray text */
---accent: 215 27.9% 16.9%;     /* Darker gray accent */
---accent-foreground: 210 20% 98%; /* Light text on accent */
---destructive: 0 62.8% 30.6%;    /* Dark red destructive */
---destructive-foreground: 210 20% 98%; /* Light text on destructive */
---border: 215 27.9% 16.9%;     /* Dark gray border */
---input: 215 27.9% 16.9%;      /* Dark gray input border */
---ring: 212.7 26.8% 83.9%;     /* Blue ring color */
---radius: 0.5rem;         /* Consistent radius */
-}
-
-/* Redesigned table styles for clarity and modern dark theme */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 body {
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Or 'Share Tech Mono' for more technical feel */
     margin: 0;
     padding: 0;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    height: 100vh;
+    min-height: 100vh; /* Use min-height for full viewport height */
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Prevent body scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    line-height: 1.5;
 }
 
 header {
-    background-color: hsl(var(--card));
+    background-color: transparent; /* No distinct background */
     padding: 1rem;
     text-align: center;
-    color: hsl(var(--primary));
-    font-weight: 600;
-    letter-spacing: 1.5px;
+    color: hsl(var(--primary-accent)); /* Cyan color for header */
+    font-weight: 700; /* Bold font */
+    font-size: 2rem; /* Adjust size */
+    letter-spacing: 2px; /* Increased spacing */
     text-transform: uppercase;
-    border-bottom: 1px solid hsl(var(--border));
+    border-bottom: 2px solid hsl(var(--secondary-accent)); /* Pink bottom border */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -75,8 +49,8 @@ header {
     box-sizing: border-box;
 }
 
-header h1 {
-    font-size: 1.5rem;
+header h1 { /* Target the h1 inside the header */
+    font-size: 2rem; /* Match header font size */
     margin: 0;
     padding: 0;
     color: inherit;
@@ -89,101 +63,116 @@ header h1 {
     flex: 1;
     display: flex;
     flex-direction: row;
-    height: 100%; /* Make container take full height of body */
-    overflow: hidden; /* Prevent container scroll */
+    height: 100%; /* Take full height */
+    overflow: hidden; /* Manage internal scroll */
+    padding: 1rem; /* Add padding to the container */
+    gap: 1rem; /* Gap between panels */
 }
 
 .sidebar {
-    background-color: hsl(var(--card)); /* Use card background for sidebars */
-    padding: 1rem;
-    overflow-y: auto;
-    border-radius: 0; /* No rounded corners for main layout panels */
+    background-color: hsl(var(--card-background)); /* Darker background for sidebars */
+    padding: 1rem; /* Padding inside sidebar */
+    overflow-y: auto; /* Enable scrolling if needed */
+    border-radius: 0; /* Sharp corners */
     box-shadow: none; /* No shadow */
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    flex-shrink: 0;
+    gap: 1rem; /* Gap between elements within sidebar */
+    flex-shrink: 0; /* Prevent shrinking */
+    border: 1px solid hsl(var(--border-color)); /* Add border */
 }
 
 .left-sidebar {
-    width: 280px;
-    border-right: 1px solid hsl(var(--border)); /* Use border color */
+    width: 280px; /* Fixed width */
+    border-right: none; /* Remove separator border */
 }
 
 .right-sidebar {
-    width: 320px;
-    border-left: 1px solid hsl(var(--border)); /* Use border color */
-    color: hsl(var(--foreground));
+    width: 320px; /* Fixed width */
+    border-left: none; /* Remove separator border */
 }
 
 .main-content {
-    flex: 1;
-    padding: 1rem;
-    overflow-y: auto;
-    background: hsl(var(--background)); /* Use main background */
-    border-radius: 0;
-    box-shadow: none;
+    flex: 1; /* Main content takes remaining space */
+    padding: 1rem; /* Padding inside main content */
+    overflow-y: auto; /* Enable scrolling if needed */
+    background: hsl(var(--card-background)); /* Darker background */
+    border-radius: 0; /* Sharp corners */
+    box-shadow: none; /* No shadow */
+    border: 1px solid hsl(var(--border-color)); /* Add border */
+}
+
+/* Section Separators */
+.section-separator {
+    width: 100%;
+    height: 2px; /* Thickness of the separator */
+    background: linear-gradient(to right, hsl(var(--primary-accent)), hsl(var(--secondary-accent))); /* Gradient color */
+    margin: 1rem 0; /* Space above and below separator */
 }
 
 /* General form element styles for consistency */
 input[type="search"], select {
     width: 100%;
-    padding: 0.5rem 1rem;
-    border: 1px solid hsl(var(--border)); /* Use border color */
-    border-radius: hsl(var(--radius)); /* Use radius variable */
-    background-color: hsl(var(--input)); /* Use input background */
-    color: hsl(var(--foreground)); /* Use foreground color */
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem; /* Add some space below form elements */
+    padding: 0.75rem 1rem; /* Increased padding */
+    border: 1px solid hsl(var(--input-border)); /* Input border color */
+    border-radius: 0; /* Sharp corners */
+    background-color: hsl(var(--input-background)); /* Input background color */
+    color: hsl(var(--foreground)); /* Text color */
+    font-size: 1rem; /* Standard font size */
+    margin-bottom: 0.5rem; /* Space below */
     outline: none; /* Remove default outline */
+    box-sizing: border-box; /* Include padding in width */
+    text-transform: uppercase; /* Uppercase text */
 }
 
 input[type="search"]::placeholder {
-    color: hsl(var(--muted-foreground)); /* Use muted foreground for placeholder */
+    color: hsl(var(--placeholder-color)); /* Placeholder color */
+    text-transform: none; /* No uppercase for placeholder */
 }
 
 input[type="search"]:focus, select:focus {
-    border-color: hsl(var(--ring)); /* Highlight border on focus */
-    box-shadow: 0 0 0 2px hsla(var(--ring), 0.2); /* Add a subtle glow */
+    border-color: hsl(var(--active-border)); /* Cyan border on focus */
+    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.5); /* Cyan glow */
 }
 
 .view-toggle {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem; /* Space below toggle */
-    align-items: center; /* Align items vertically */
+    gap: 1.5rem; /* Increased gap */
+    margin-bottom: 1rem;
+    align-items: center;
 }
 
 .view-toggle label {
-    font-size: 0.95rem;
-    color: hsl(var(--foreground)); /* Use foreground color */
+    font-size: 1rem; /* Standard font size */
+    color: hsl(var(--foreground)); /* Text color */
     cursor: pointer;
-    display: flex; /* Use flex to align radio and text */
+    display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between radio and text */
+    gap: 0.5rem;
+    text-transform: uppercase; /* Uppercase label */
 }
 
 .view-toggle input[type="radio"] {
-    /* Hide default radio button */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 1px solid hsl(var(--border)); /* Use border color */
-    border-radius: 50%; /* Make it round */
-    background-color: hsl(var(--background)); /* Use background color */
+    width: 18px; /* Slightly larger */
+    height: 18px; /* Slightly larger */
+    border: 1px solid hsl(var(--input-border)); /* Border color */
+    border-radius: 0; /* Square radio */
+    background-color: hsl(var(--input-background)); /* Background color */
     position: relative;
     outline: none;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .view-toggle input[type="radio"]:checked::before {
     content: '';
     width: 10px;
     height: 10px;
-    background-color: hsl(var(--primary)); /* Use primary color for checked state */
-    border-radius: 50%;
+    background-color: hsl(var(--primary-accent)); /* Cyan checked state */
+    display: block; /* Ensure the pseudo-element is block for centering */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -191,105 +180,75 @@ input[type="search"]:focus, select:focus {
 }
 
 .view-toggle input[type="radio"]:focus {
-    box-shadow: 0 0 0 2px hsla(var(--ring), 0.2); /* Add focus glow */
+    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.5); /* Focus glow */
 }
 
 .search-sort-filter {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem; /* Space between search/filter/sort */
 }
 
 /* Table styles */
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 1px solid hsl(var(--border)); /* Use border color */
-    table-layout: fixed; /* Ensure fixed layout */
+    border-collapse: separate; /* Use separate to control borders */
+    border-spacing: 0; /* No space between cells */
+    border: 1px solid hsl(var(--border-color)); /* Table border */
+    table-layout: fixed; /* Fixed column widths */
     font-size: 0.95rem;
-    border-radius: hsl(var(--radius)); /* Use radius variable */
-    overflow: hidden; /* Hide overflowing content and rounded corners */
-    margin-top: 0; /* Remove default table margin */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Add a subtle shadow to the table */
+    border-radius: 0; /* Sharp corners */
+    overflow: hidden;
+    margin-top: 0;
+    box-shadow: none; /* No shadow */
 }
 
 thead {
-    background-color: hsl(var(--secondary)); /* Use secondary background for header */
-    color: hsl(var(--secondary-foreground)); /* Use secondary foreground */
+    background-color: hsl(var(--card-background)); /* Header background */
+    color: hsl(var(--foreground)); /* Header text color */
 }
 
 th, td {
-    padding: 0.75rem 1rem; /* Consistent padding */
+    padding: 0.75rem 1rem; /* Padding */
     text-align: left;
     vertical-align: middle;
-    border: none; /* Remove cell borders, rely on row borders */
+    border: 1px solid hsl(var(--border-color)); /* Cell borders */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: hsl(var(--foreground)); /* Default text color */
-    box-sizing: border-box; /* Include padding in width */
+    color: hsl(var(--foreground)); /* Text color */
+    box-sizing: border-box; /* Include padding/border in width */
 }
 
 th {
-    font-weight: 600; /* Semi-bold font */
+    font-weight: 700; /* Bold header text */
     cursor: pointer;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Uppercase headers */
     letter-spacing: 0.5px;
     position: relative;
     user-select: none;
-    background-color: hsl(var(--muted)); /* Subtle different background for headers */
-    color: hsl(var(--muted-foreground)); /* Muted foreground color */
-    border-bottom: 1px solid hsl(var(--border)); /* Keep bottom border for header row */
+    background-color: hsl(var(--input-background)); /* Slightly different header background */
+    color: hsl(var(--primary-accent)); /* Cyan header text */
 }
 
 /* Apply width styles to both th and td */
 th:nth-child(1),
 td:nth-child(1) { /* Image column */
-    width: 140px; /* Fixed width to fit header */
-    min-width: 140px;
-    max-width: 140px;
+    width: 140px; /* Fixed width */
+    min-width: 120px; /* Adjusted min-width */
+    max-width: 150px; /* Adjusted max-width */
 }
 
 th:nth-child(2),
 td:nth-child(2) { /* Name column */
-    width: auto; /* Allow name to take remaining space */
+    width: auto; /* Take remaining space */
+    min-width: 150px; /* Ensure some minimal width */
 }
 
-th:nth-child(3), td:nth-child(3) { /* WA */
-    width: 70px;
-    min-width: 70px;
-}
-th:nth-child(4), td:nth-child(4) { /* CON */
-    width: 70px;
-    min-width: 70px;
-}
-th:nth-child(5), td:nth-child(5) { /* Damage */
-    width: 110px;
-    min-width: 100px;
-}
-th:nth-child(6), td:nth-child(6) { /* Ammo */
-    width: 90px;
-    min-width: 80px;
-}
-th:nth-child(7), td:nth-child(7) { /* Shots */
-    width: 90px;
-    min-width: 80px;
-}
-th:nth-child(8), td:nth-child(8) { /* ROF */
-    width: 70px;
-    min-width: 70px;
-}
-th:nth-child(9), td:nth-child(9) { /* Rel */
-    width: 70px;
-    min-width: 70px;
-}
-th:nth-child(10), td:nth-child(10) { /* Range */
-    width: 90px;
-    min-width: 80px;
-}
-th:nth-child(11), td:nth-child(11) { /* Cost */
-    width: 90px;
-    min-width: 80px;
+th:nth-child(n+3),
+td:nth-child(n+3) { /* Other columns */
+    width: 90px; /* Example width */
+    min-width: 70px; /* Ensure content fits */
 }
 
 th.sort-asc::after,
@@ -302,96 +261,97 @@ th.sort-desc::after {
     height: 0;
     border-style: solid;
     border-width: 6px 5px 0 5px;
-    border-color: hsl(var(--muted-foreground)) transparent transparent transparent; /* Use muted foreground */
+    border-color: hsl(var(--primary-accent)) transparent transparent transparent; /* Cyan arrow */
     transform: translateY(-50%);
 }
 
 th.sort-desc::after {
     border-width: 0 5px 6px 5px;
-    border-color: transparent transparent hsl(var(--muted-foreground)) transparent; /* Use muted foreground */
+    border-color: transparent transparent hsl(var(--primary-accent)) transparent; /* Cyan arrow */
 }
 
 tbody tr {
-    border-bottom: 1px solid hsl(var(--border)); /* Row separator */
+    /* No border here, borders are on td */
 }
 
 tbody tr:last-child {
-    border-bottom: none;
+    /* No bottom border needed on the row if td has borders */
 }
 
 tbody tr:nth-child(even) {
-    background-color: hsl(var(--background)); /* Use background color */
+    background-color: transparent; /* No distinct background for rows */
 }
 
 tbody tr:nth-child(odd) {
-    background-color: hsl(var(--card)); /* Use card color for alternate rows */
+    background-color: transparent; /* No distinct background for rows */
 }
 
 tbody tr:hover {
-    background-color: hsl(var(--accent)); /* Use accent color on hover */
-    color: hsl(var(--accent-foreground)); /* Use accent foreground on hover */
+    background-color: hsl(var(--hover-background)); /* Hover background */
 }
 
 tbody tr:hover td {
-    color: hsl(var(--accent-foreground)); /* Ensure text is readable on hover background */
+    color: hsl(var(--foreground)); /* Keep text color on hover */
 }
 
 /* Card styles */
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; /* Reduced gap */
-    justify-content: flex-start;
-    padding: 0.5rem; /* Add some padding around cards */
+    gap: 1.5rem; /* Gap between cards */
+    justify-content: center; /* Center cards */
+    padding: 1rem; /* Padding around cards */
 }
 
 .card {
-    background: hsl(var(--card)); /* Use card background */
-    border-radius: hsl(var(--radius)); /* Use radius variable */
-    width: 220px; /* Slightly smaller width */
-    padding: 1rem; /* Reduced padding */
+    background: hsl(var(--card-background)); /* Card background */
+    border-radius: 0; /* Sharp corners */
+    width: 250px; /* Card width */
+    padding: 1.5rem; /* Card padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: all 0.2s ease; /* Faster transition */
-    color: hsl(var(--foreground)); /* Default text color */
-    border: 1px solid hsl(var(--border)); /* Use border color */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: border-color 0.3s ease; /* Smooth transition for border */
+    color: hsl(var(--foreground)); /* Text color */
+    border: 2px solid hsl(var(--border-color)); /* Card border */
+    box-shadow: none; /* No shadow */
 }
 
 .card:hover {
-    background: hsl(var(--accent)); /* Use accent color on hover */
-    color: hsl(var(--accent-foreground)); /* Use accent foreground on hover */
-    transform: translateY(-3px); /* Slightly increased lift effect */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    background: hsl(var(--card-background)); /* Keep background on hover */
+    border-color: hsl(var(--primary-accent)); /* Cyan border on hover */
+    color: hsl(var(--foreground)); /* Keep text color */
+    transform: none; /* No lift effect */
+    box-shadow: none; /* No shadow */
 }
 
 .card img {
     max-width: 100%;
-    max-height: 120px; /* Slightly reduced max height */
+    max-height: 150px; /* Image size */
     object-fit: contain;
-    margin-bottom: 0.8rem; /* Slightly reduced margin */
-    border-radius: hsl(var(--radius)); /* Match card border radius */
-    background-color: hsl(var(--background)); /* Add background to image area */
-    padding: 0.5rem; /* Padding around image */
+    margin-bottom: 1rem; /* Space below image */
+    border-radius: 0; /* Sharp corners */
+    background-color: transparent; /* No background */
+    padding: 0; /* No padding */
+    border: 1px solid hsl(var(--border-color)); /* Image border */
 }
 
 .card h3 {
-    margin: 0.5rem 0 0.8rem 0; /* Adjusted margins */
-    font-size: 1.1rem; /* Slightly smaller font size */
+    margin: 0.5rem 0; /* Margin */
+    font-size: 1.2rem; /* Font size */
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.8px; /* Reduced spacing */
-    color: inherit; /* Inherit color from card */
+    text-transform: uppercase; /* Uppercase */
+    letter-spacing: 1px; /* Spacing */
+    color: hsl(var(--primary-accent)); /* Cyan color for title */
 }
 
 .card p {
-    margin: 0.2rem 0; /* Reduced margin */
-    font-size: 0.9rem;
+    margin: 0.3rem 0; /* Margin */
+    font-size: 0.95rem; /* Font size */
     width: 100%;
     word-wrap: break-word;
-    color: hsl(var(--muted-foreground)); /* Use muted foreground for details */
+    color: hsl(var(--muted-foreground)); /* Muted text color */
     text-align: center;
 }
 
@@ -399,7 +359,7 @@ tbody tr:hover td {
 #selectedItemDetails {
     padding: 1rem;
     font-size: 1rem;
-    color: hsl(var(--foreground)); /* Use foreground color */
+    color: hsl(var(--foreground)); /* Text color */
 }
 
 #selectedItemDetails p, #selectedItemDetails h3 {
@@ -408,50 +368,52 @@ tbody tr:hover td {
 }
 
 #selectedItemDetails h3 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.4rem; /* Larger font size */
+    text-transform: uppercase; /* Uppercase */
+    letter-spacing: 1.5px; /* Spacing */
+    color: hsl(var(--primary-accent)); /* Cyan color */
 }
 
 #selectedItemDetails img {
     max-width: 100%;
-    max-height: 200px; /* Slightly reduced max height */
+    max-height: 250px; /* Image size */
     object-fit: contain;
     display: block;
-    margin-bottom: 1rem;
-    border-radius: hsl(var(--radius)); /* Use radius variable */
-    background-color: hsl(var(--background)); /* Add background to image area */
-    padding: 0.5rem; /* Padding around image */
+    margin: 0 auto 1.5rem auto; /* Center image and add bottom margin */
+    border-radius: 0; /* Sharp corners */
+    background-color: transparent; /* No background */
+    padding: 0; /* No padding */
+    border: 1px solid hsl(var(--border-color)); /* Image border */
 }
 
-/* Rarity color classes for avail */
+/* Rarity color classes for avail - Adjusting to fit cyberpunk theme */
 .rarity-c {
-    color: hsl(217.2 10% 60.9%); /* Muted gray-blue */
+    color: hsl(210 20% 70%); /* Lighter gray */
 }
 
 .rarity-p {
-    color: hsl(270 70% 65%); /* Muted purple */
+    color: hsl(270 100% 70%); /* Brighter purple */
 }
 
 .rarity-r {
-    color: hsl(45 85% 60%); /* Muted gold */
+    color: hsl(45 100% 60%); /* Brighter gold */
 }
 
 .card h3.rarity-c {
-    color: hsl(217.2 10% 60.9%); /* Muted gray-blue */
+    color: hsl(210 20% 70%);
 }
 
 .card h3.rarity-p {
-    color: hsl(270 70% 65%); /* Muted purple */
+    color: hsl(270 100% 70%);
 }
 
 .card h3.rarity-r {
-    color: hsl(45 85% 60%); /* Muted gold */
+    color: hsl(45 100% 60%);
 }
 
 /* Scrollbar styles for Webkit browsers */
 ::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 10px; /* Wider scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -459,27 +421,57 @@ tbody tr:hover td {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted)); /* Thumb color */
-    border-radius: 4px; /* Rounded thumb */
+    background: hsl(var(--border-color)); /* Dark gray thumb */
+    border-radius: 5px; /* Rounded thumb */
+    border: 1px solid hsl(var(--input-border)); /* Add border to thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground)); /* Darker thumb on hover */
+    background: hsl(var(--muted-foreground)); /* Muted gray thumb on hover */
 }
 
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
         height: auto;
+        padding: 0.5rem; /* Reduced padding on mobile */
+        gap: 0.5rem; /* Reduced gap on mobile */
+    }
+    .sidebar {
+        border: none; /* Remove borders when stacked */
+        padding: 0.8rem; /* Adjusted padding */
     }
     .left-sidebar,
     .right-sidebar {
         width: 100%;
-        border: none;
-        border-bottom: 1px solid hsl(var(--border));
+        border-bottom: 1px solid hsl(var(--border-color)); /* Separator border when stacked */
     }
     .main-content {
-        padding: 0.5rem;
-        border-radius: 0;
+        border: none; /* Remove borders when stacked */
+        padding: 0.8rem; /* Adjusted padding */
+    }
+    .card-container {
+        gap: 0.8rem; /* Reduced gap on mobile */
+        justify-content: center;
+        padding: 0.5rem; /* Reduced padding */
+    }
+    .card {
+        width: 180px; /* Smaller card width on mobile */
+        padding: 1rem; /* Adjusted padding */
+    }
+    .card img {
+        max-height: 100px; /* Smaller image on mobile */
+    }
+    .card h3 {
+        font-size: 1rem; /* Smaller font on mobile */
+    }
+    .card p {
+        font-size: 0.85rem; /* Smaller font on mobile */
+    }
+    #selectedItemDetails h3 {
+        font-size: 1.2rem; /* Adjusted font size */
+    }
+    #selectedItemDetails img {
+        max-height: 150px; /* Smaller image on mobile */
     }
 }
