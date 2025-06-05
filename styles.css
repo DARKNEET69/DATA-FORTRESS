@@ -114,7 +114,7 @@ th, td {
     vertical-align: middle;
     background: #181818;
     color: #b3b3b3;
-    border-radius: 10px;
+    border-radius: 0;
 }
 
 th {
