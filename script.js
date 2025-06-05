@@ -221,9 +221,26 @@ function renderTable(items) {
         }
         tr.appendChild(imageTd);
 
-        // Name
+        // Name with rarity color class based on avail
         const nameTd = document.createElement('td');
         nameTd.textContent = item.name || '';
+        if (item.avail) {
+            const avail = item.avail.toUpperCase();
+            switch (avail) {
+                case 'C':
+                    nameTd.classList.add('rarity-c');
+                    break;
+                case 'P':
+                    nameTd.classList.add('rarity-p');
+                    break;
+                case 'R':
+                    nameTd.classList.add('rarity-r');
+                    break;
+                default:
+                    // E or others: normal text color
+                    break;
+            }
+        }
         tr.appendChild(nameTd);
 
         // WA with + prefix if non-negative
@@ -240,10 +257,10 @@ function renderTable(items) {
         conTd.textContent = item.con || '';
         tr.appendChild(conTd);
 
-        // Avail
-        const availTd = document.createElement('td');
-        availTd.textContent = item.avail || '';
-        tr.appendChild(availTd);
+        // Remove Avail text display
+        // const availTd = document.createElement('td');
+        // availTd.textContent = item.avail || '';
+        // tr.appendChild(availTd);
 
         // Damage
         const damageTd = document.createElement('td');
