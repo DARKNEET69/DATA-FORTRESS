@@ -23,7 +23,6 @@ header {
     text-align: center;
     color: hsl(var(--primary));
     font-weight: 600;
-    font-size: 2vw;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     border-bottom: 1px solid hsl(var(--border));
@@ -32,6 +31,16 @@ header {
     text-overflow: ellipsis;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container {
@@ -131,6 +140,7 @@ th, td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: hsl(var(--foreground)); /* Ensure default text color is visible */
 }
 
 th {
@@ -186,7 +196,7 @@ tbody tr:hover {
 }
 
 tbody tr:hover td {
-    color: hsl(var(--accent-foreground));
+    color: hsl(var(--accent-foreground)); /* Ensure text is readable on hover background */
 }
 
 /* Card styles */
