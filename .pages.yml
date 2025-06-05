@@ -34,10 +34,7 @@ content:
     path: data.csv
     type: file
     format: datagrid
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{name} ({index})"
+    list: true
     view:
       fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
       primary: name
