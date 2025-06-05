@@ -1,42 +1,9 @@
-[
-  {
-    "id": "8f5b082f-b75d-4391-b72b-ecc17d29b407",
-    "name": "Federated Arms X-38",
-    "image": "/media/images/Federated_Arms_X-38.webp",
-    "tags": [
-      "weapon"
-    ],
-    "wa": 1,
-    "con": "J",
-    "avail": "E",
-    "damage": "2d6",
-    "ammo": ".38",
-    "shots": 10,
-    "rof": 0,
-    "burst": false,
-    "rel": "ST",
-    "range": 50,
-    "cost": 35,
-    "note": "Federated Arms X-38 - недорогой автоматический пистолет под безгильзовый патрон .38."
-  },
-  {
-    "id": "13fae52e-6659-4bbf-a66e-f43c0a6c25a6",
-    "name": "Federated Arms X-22",
-    "image": "/media/images/Federated_Arms_X-22.webp",
-    "tags": [
-      "weapon"
-    ],
-    "wa": 0,
-    "con": "J",
-    "avail": "E",
-    "damage": "1d6",
-    "ammo": ".22",
-    "shots": 10,
-    "rof": 2,
-    "burst": false,
-    "rel": "ST",
-    "range": 50,
-    "cost": 25,
-    "note": "Federated Arms X-22 — это лёгкий дешёвый пластиковый пистолет \"Polymer-one-shot\". Доступен в 13 дизайнерских цветах и двух версиях:\n\n1.  Безгильзовый .22 (урон 1d6, 25-50eb)\n    \n2.  Безгильзовый 6mm (урон 1d6+1, 50-150eb)"
-  }
-]
+{
+  "item": [
+    {
+      "id": "8ae7aa9b-34d7-4f8f-8d74-076f26a33eb4",
+      "name": "X-38",
+      "burst": false
+    }
+  ]
+}
