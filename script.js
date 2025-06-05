@@ -33,10 +33,94 @@ function toggleView(view) {
     }
 }
 
+let currentSortColumn = null;
+let currentSortDirection = null; // 'asc', 'desc', or null for default
+
 function setupSearchSortFilter() {
     document.getElementById('searchInput').addEventListener('input', applyFilters);
     document.getElementById('categoryFilter').addEventListener('change', applyFilters);
-    document.getElementById('sortSelect').addEventListener('change', applyFilters);
+    // Remove sortSelect listener since sorting will be done by clicking headers
+    setupTableHeaderSorting();
+}
+
+function setupTableHeaderSorting() {
+    const headers = document.querySelectorAll('#tableView th');
+    headers.forEach(header => {
+        header.style.cursor = 'pointer';
+        header.addEventListener('click', () => {
+            const column = header.textContent.trim().toLowerCase();
+            if (currentSortColumn === column) {
+                // Cycle sort direction
+                if (currentSortDirection === 'asc') {
+                    currentSortDirection = 'desc';
+                } else if (currentSortDirection === 'desc') {
+                    currentSortDirection = null;
+                    currentSortColumn = null;
+                } else {
+                    currentSortDirection = 'asc';
+                }
+            } else {
+                currentSortColumn = column;
+                currentSortDirection = 'asc';
+            }
+            applyFilters();
+            updateSortIndicators();
+        });
+    });
+}
+
+function updateSortIndicators() {
+    const headers = document.querySelectorAll('#tableView th');
+    headers.forEach(header => {
+        header.classList.remove('sort-asc', 'sort-desc');
+        const column = header.textContent.trim().toLowerCase();
+        if (column === currentSortColumn) {
+            if (currentSortDirection === 'asc') {
+                header.classList.add('sort-asc');
+            } else if (currentSortDirection === 'desc') {
+                header.classList.add('sort-desc');
+            }
+        }
+    });
+}
+
+function applyFilters() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const categoryFilter = document.getElementById('categoryFilter').value;
+
+    filteredItems = allItems.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+        const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
+        return matchesSearch && matchesCategory;
+    });
+
+    sortItems();
+    renderItems();
+}
+
+function sortItems() {
+    if (!currentSortColumn || !currentSortDirection) {
+        // No sorting, keep original order
+        filteredItems = filteredItems.slice();
+        return;
+    }
+
+    filteredItems.sort((a, b) => {
+        let aVal = a[currentSortColumn];
+        let bVal = b[currentSortColumn];
+
+        // Handle undefined or null values
+        if (aVal === undefined || aVal === null) aVal = '';
+        if (bVal === undefined || bVal === null) bVal = '';
+
+        // Convert to string for name or other string fields
+        if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+        if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+        if (aVal < bVal) return currentSortDirection === 'asc' ? -1 : 1;
+        if (aVal > bVal) return currentSortDirection === 'asc' ? 1 : -1;
+        return 0;
+    });
 }
 
 async function loadAllData() {
