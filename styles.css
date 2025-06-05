@@ -160,8 +160,7 @@ th {
 th:nth-child(1),
 td:nth-child(1) { /* Image column */
     width: 80px;
-    min-width: 80px;
-    max-width: 80px;
+    min-width: 80px; /* Ensure image column doesn't shrink */
 }
 
 th:nth-child(2),
@@ -170,40 +169,40 @@ td:nth-child(2) { /* Name column */
 }
 
 th:nth-child(3), td:nth-child(3) { /* WA */
-    width: 70px;
-    min-width: 60px;
+    width: 70px; /* Explicit width */
+    min-width: 70px; /* Ensure header fits */
 }
 th:nth-child(4), td:nth-child(4) { /* CON */
-    width: 70px;
-    min-width: 60px;
+    width: 70px; /* Explicit width */
+    min-width: 70px; /* Ensure header fits */
 }
 th:nth-child(5), td:nth-child(5) { /* Damage */
-    width: 90px;
-    min-width: 70px;
+    width: 100px; /* Explicit width */
+    min-width: 90px; /* Ensure header fits */
 }
 th:nth-child(6), td:nth-child(6) { /* Ammo */
-    width: 80px;
-    min-width: 70px;
+    width: 90px; /* Explicit width */
+    min-width: 80px; /* Ensure header fits */
 }
 th:nth-child(7), td:nth-child(7) { /* Shots */
-    width: 70px;
-    min-width: 60px;
+    width: 80px; /* Explicit width */
+    min-width: 70px; /* Ensure header fits */
 }
 th:nth-child(8), td:nth-child(8) { /* ROF */
-    width: 70px;
-    min-width: 60px;
+    width: 70px; /* Explicit width */
+    min-width: 70px; /* Ensure header fits */
 }
 th:nth-child(9), td:nth-child(9) { /* Rel */
-    width: 70px;
-    min-width: 60px;
+    width: 70px; /* Explicit width */
+    min-width: 70px; /* Ensure header fits */
 }
 th:nth-child(10), td:nth-child(10) { /* Range */
-    width: 80px;
-    min-width: 70px;
+    width: 90px; /* Explicit width */
+    min-width: 80px; /* Ensure header fits */
 }
 th:nth-child(11), td:nth-child(11) { /* Cost */
-    width: 90px;
-    min-width: 70px;
+    width: 90px; /* Explicit width */
+    min-width: 80px; /* Ensure header fits */
 }
 
 /* Make sure total of fixed widths allows space for the auto column */
