@@ -131,6 +131,7 @@ function renderTable(items) {
     tbody.innerHTML = '';
     items.forEach(item => {
         const tr = document.createElement('tr');
+        tr.dataset.itemId = item.id || '';
 
         // Image
         const imageTd = document.createElement('td');
@@ -217,6 +218,13 @@ function renderTable(items) {
 
         tbody.appendChild(tr);
     });
+
+    // Add click event listeners for row selection
+    Array.from(tbody.children).forEach(tr => {
+        tr.addEventListener('click', () => {
+            selectItemById(tr.dataset.itemId);
+        });
+    });
 }
 
 function renderCards(items) {
@@ -225,6 +233,7 @@ function renderCards(items) {
     items.forEach(item => {
         const card = document.createElement('div');
         card.className = 'card';
+        card.dataset.itemId = item.id || '';
 
         // Image
         if (item.image) {
@@ -315,9 +324,122 @@ function renderCards(items) {
 
         container.appendChild(card);
     });
+
+    // Add click event listeners for card selection
+    Array.from(container.children).forEach(card => {
+        card.addEventListener('click', () => {
+            selectItemById(card.dataset.itemId);
+        });
+    });
 }
 
 function capitalize(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Selected item display logic
+let selectedItemId = null;
+
+function selectItemById(id) {
+    if (selectedItemId === id) return; // already selected
+    selectedItemId = id;
+    const item = allItems.find(i => i.id === id);
+    renderSelectedItem(item);
+}
+
+function renderSelectedItem(item) {
+    const container = document.getElementById('selectedItemDetails');
+    container.innerHTML = '';
+    if (!item) {
+        container.innerHTML = '<p>Select an item to see details here.</p>';
+        return;
+    }
+
+    // Image
+    if (item.image) {
+        const img = document.createElement('img');
+        if (item.image.startsWith('/media')) {
+            img.src = '/DATA-FORTRESS' + item.image;
+        } else {
+            img.src = item.image;
+        }
+        img.alt = item.name;
+        container.appendChild(img);
+    }
+
+    // Name
+    const name = document.createElement('h3');
+    name.textContent = item.name || '';
+    container.appendChild(name);
+
+    // WA with + prefix if non-negative
+    if (typeof item.wa === 'number') {
+        const wa = document.createElement('p');
+        wa.textContent = 'WA: ' + (item.wa >= 0 ? '+' : '') + item.wa;
+        container.appendChild(wa);
+    }
+
+    // CON
+    if (item.con) {
+        const con = document.createElement('p');
+        con.textContent = 'CON: ' + item.con;
+        container.appendChild(con);
+    }
+
+    // Avail
+    if (item.avail) {
+        const avail = document.createElement('p');
+        avail.textContent = 'Avail: ' + item.avail;
+        container.appendChild(avail);
+    }
+
+    // Damage
+    if (item.damage) {
+        const damage = document.createElement('p');
+        damage.textContent = 'Damage: ' + item.damage;
+        container.appendChild(damage);
+    }
+
+    // Ammo
+    if (item.ammo) {
+        const ammo = document.createElement('p');
+        ammo.textContent = 'Ammo: ' + item.ammo;
+        container.appendChild(ammo);
+    }
+
+    // Shots
+    if (item.shots !== undefined) {
+        const shots = document.createElement('p');
+        shots.textContent = 'Shots: ' + item.shots;
+        container.appendChild(shots);
+    }
+
+    // ROF
+    if (item.rof !== undefined) {
+        const rof = document.createElement('p');
+        rof.textContent = 'ROF: ' + item.rof;
+        container.appendChild(rof);
+    }
+
+    // Rel
+    if (item.rel) {
+        const rel = document.createElement('p');
+        rel.textContent = 'Rel: ' + item.rel;
+        container.appendChild(rel);
+    }
+
+    // Range with "м" suffix
+    if (item.range !== undefined) {
+        const range = document.createElement('p');
+        range.textContent = 'Range: ' + item.range + 'м';
+        container.appendChild(range);
+    }
+
+    // Cost with "$" suffix
+    if (item.cost !== undefined) {
+        const cost = document.createElement('p');
+        cost.textContent = 'Cost: ' + item.cost + '$';
+        container.appendChild(cost);
+    }
 }

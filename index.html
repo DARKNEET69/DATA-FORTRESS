@@ -9,59 +9,69 @@
 <body>
     <header>
         <h1>Cyberpunk 2020 Item Catalog</h1>
-        <div class="view-toggle">
-            <label>
-                <input type="radio" name="view" value="table" checked />
-                Table View
-            </label>
-            <label>
-                <input type="radio" name="view" value="cards" />
-                Card View
-            </label>
-        </div>
-        <div class="search-sort-filter">
-            <input type="search" id="searchInput" placeholder="Search items..." />
-            <select id="categoryFilter">
-                <option value="all">All Categories</option>
-            </select>
-            <select id="sortSelect">
-                <option value="name-asc">Sort by Name (A-Z)</option>
-                <option value="name-desc">Sort by Name (Z-A)</option>
-                <option value="cost-asc">Sort by Cost (Low to High)</option>
-                <option value="cost-desc">Sort by Cost (High to Low)</option>
-            </select>
-        </div>
     </header>
-    <main>
-        <section id="tableView" class="view">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>WA</th>
-                        <th>CON</th>
-                        <th>Avail</th>
-                        <th>Damage</th>
-                        <th>Ammo</th>
-                        <th>Shots</th>
-                        <th>ROF</th>
-                        <th>Rel</th>
-                        <th>Range</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <!-- Data rows go here -->
-                </tbody>
-            </table>
-        </section>
-        <section id="cardView" class="view" style="display:none;">
-            <div id="cardContainer" class="card-container">
-                <!-- Cards go here -->
+    <div class="container">
+        <aside class="sidebar left-sidebar">
+            <div class="view-toggle">
+                <label>
+                    <input type="radio" name="view" value="table" checked />
+                    Table View
+                </label>
+                <label>
+                    <input type="radio" name="view" value="cards" />
+                    Card View
+                </label>
             </div>
-        </section>
-    </main>
+            <div class="search-sort-filter">
+                <input type="search" id="searchInput" placeholder="Search items..." />
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+                <select id="sortSelect">
+                    <option value="name-asc">Sort by Name (A-Z)</option>
+                    <option value="name-desc">Sort by Name (Z-A)</option>
+                    <option value="cost-asc">Sort by Cost (Low to High)</option>
+                    <option value="cost-desc">Sort by Cost (High to Low)</option>
+                </select>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section id="tableView" class="view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>WA</th>
+                            <th>CON</th>
+                            <th>Avail</th>
+                            <th>Damage</th>
+                            <th>Ammo</th>
+                            <th>Shots</th>
+                            <th>ROF</th>
+                            <th>Rel</th>
+                            <th>Range</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Data rows go here -->
+                    </tbody>
+                </table>
+            </section>
+            <section id="cardView" class="view" style="display:none;">
+                <div id="cardContainer" class="card-container">
+                    <!-- Cards go here -->
+                </div>
+            </section>
+        </main>
+        <aside class="sidebar right-sidebar">
+            <h2>Selected Item</h2>
+            <div id="selectedItemDetails">
+                <p>Select an item to see details here.</p>
+            </div>
+        </aside>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
