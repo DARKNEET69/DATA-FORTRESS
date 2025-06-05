@@ -141,6 +141,7 @@ th, td {
     text-overflow: ellipsis;
     white-space: nowrap;
     color: hsl(var(--foreground)); /* Ensure default text color is visible */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
 }
 
 th {
