@@ -31,11 +31,11 @@ content:
   - name: data
     label: Data
     type: file
-    list:
-      collapsible:
-        collapsed: true
-        summary: "({index})"
     path: data.json
+    list: true
+    view:
+      fields: [ image, name, wa, con, avail, damage, ammo, shots, rof, rel, range, cost ]
+      primary: name
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
       - { name: name, label: NAME, type: string, required: true }
