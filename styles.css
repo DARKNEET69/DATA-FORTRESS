@@ -3,55 +3,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 :root{
-    /* Cyberpunk Palette - Refined */
-    --background: 240 10% 5%;     /* Even darker background */
-    --foreground: 185 10% 90%; /* Slightly muted light text */
-    --primary-accent: 185 100% 55%; /* Brighter Cyan */
-    --secondary-accent: 330 100% 60%; /* Brighter Pink/Magenta */
-    --border-color: 210 5% 25%; /* Slightly lighter dark gray border */
-    --card-background: 240 10% 8%; /* Darker background for cards/blocks */
-    --input-background: 240 10% 12%; /* Darker input fields */
-    --input-border: 210 5% 30%; /* Dark gray input border */
-    --placeholder-color: 210 5% 45%; /* Muted gray placeholder */
-    --hover-background: 240 10% 15%; /* Slightly lighter on hover */
-    --active-border: var(--primary-accent); /* Cyan border on active */
-    --focus-ring: hsla(185, 100%, 55%, 0.4); /* Cyan glow - slightly less opaque */
-    --muted-foreground: 210 5% 60%; /* Muted text for less important info */
+    /* Cyberpunk RED Palette */
+    --background: 10 5% 8%;     /* Very dark reddish-gray */
+    --foreground: 10 10% 85%; /* Off-white/light gray text */
+    --primary-accent: 0 80% 55%; /* Red */
+    --secondary-accent: 40 80% 60%; /* Orange/Yellow (for contrast) */
+    --border-color: 10 5% 30%; /* Dark gray border */
+    --card-background: 10 5% 12%; /* Slightly lighter dark for cards/blocks */
+    --input-background: 10 5% 15%; /* Darker input fields */
+    --input-border: 10 5% 35%; /* Darker gray input border */
+    --placeholder-color: 10 5% 50%; /* Muted gray placeholder */
+    --hover-background: 10 5% 20%; /* Slightly lighter on hover */
+    --active-border: var(--primary-accent); /* Red border on active */
+    --focus-ring: hsla(0, 80%, 55%, 0.4); /* Red glow */
+    --muted-foreground: 10 5% 65%; /* Muted text for less important info */
     --radius: 0; /* Sharp corners */
 }
 
 body {
-    font-family: 'Orbitron', sans-serif; /* Or 'Share Tech Mono' for more technical feel */
+    font-family: 'Orbitron', sans-serif; /* Keep Orbitron, adjust if needed later */
     margin: 0;
     padding: 0;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    min-height: 100vh; /* Use min-height for full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     line-height: 1.5;
 }
 
 header {
-    background-color: transparent; /* No distinct background */
+    background-color: hsl(var(--card-background)); /* Use card background for header */
     padding: 1rem;
     text-align: center;
-    color: hsl(var(--primary-accent)); /* Cyan color for header */
-    font-weight: 700; /* Bold font */
-    font-size: 2rem; /* Adjust size */
-    letter-spacing: 2px; /* Increased spacing */
+    color: hsl(var(--primary-accent)); /* Red color for header */
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    border-bottom: 2px solid hsl(var(--secondary-accent)); /* Pink bottom border */
+    border-bottom: 2px solid hsl(var(--primary-accent)); /* Red bottom border */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     box-sizing: border-box;
+    box-shadow: none; /* No shadow */
 }
 
-header h1 { /* Target the h1 inside the header */
-    font-size: 2rem; /* Match header font size */
+header h1 {
+    font-size: 2rem;
     margin: 0;
     padding: 0;
     color: inherit;
@@ -66,96 +67,86 @@ header h1 { /* Target the h1 inside the header */
     flex-direction: row;
     height: 100%;
     overflow: hidden;
-    padding: 1rem; /* Add padding to the container */
-    gap: 1rem; /* Gap between panels */
+    padding: 0; /* Remove padding from container */
+    gap: 0; /* Remove gap */
 }
 
 .container > * {
-    border: 1px solid hsl(var(--border-color)); /* Add border to direct children */
-    background-color: hsl(var(--card-background)); /* Use card background for panels */
-    border-radius: 0; /* Sharp corners */
-    overflow: hidden; /* Hide overflowing content, especially for rounded corners (though radius is 0) */
+    border: none; /* Remove border from children */
+    background-color: transparent; /* Transparent background */
+    border-radius: 0;
+    overflow: hidden;
 }
 
 .sidebar {
-    padding: 1.5rem 1rem; /* Increased top/bottom padding */
-    overflow-y: auto; /* Enable scrolling if needed */
-    box-shadow: none; /* No shadow */
+    padding: 1.5rem 1rem; /* Keep padding inside sidebar */
+    overflow-y: auto;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Increased gap between elements within sidebar */
-    flex-shrink: 0; /* Prevent shrinking */
-    /* Border is now handled by .container > * */
-    border: none; /* Remove individual border */
+    gap: 1.5rem;
+    flex-shrink: 0;
+    border-right: 1px solid hsl(var(--border-color)); /* Add border between sidebars and main content */
 }
 
 .left-sidebar {
-    width: 300px; /* Increased width */
-    /* border-right: none; */ /* Handled by .container > *:first-child */
+    width: 300px;
 }
 
 .right-sidebar {
-    width: 340px; /* Increased width */
-    /* border-left: none; */ /* Handled by .container > *:last-child */
-}
-
-.container > :first-child {
-    border-right: none; /* Remove border between left sidebar and main content */
-}
-
-.container > :last-child {
-    border-left: none; /* Remove border between main content and right sidebar */
+    width: 340px;
+    border-left: 1px solid hsl(var(--border-color)); /* Add border between main content and right sidebar */
+    border-right: none; /* Remove right border */
 }
 
 .main-content {
-    flex: 1; /* Main content takes remaining space */
-    padding: 1rem; /* Padding inside main content */
-    overflow-y: auto; /* Enable scrolling if needed */
-    /* Background and border handled by .container > * */
-    background: none; /* Remove background */
+    flex: 1;
+    padding: 1.5rem 1rem; /* Keep padding inside main content */
+    overflow-y: auto;
+    background: transparent; /* Transparent background */
     border: none; /* Remove individual border */
     border-radius: 0;
-    box-shadow: none; /* No shadow */
+    box-shadow: none;
 }
 
 /* Section Separators */
 .section-separator {
     width: 100%;
     height: 2px; /* Thickness of the separator */
-    background: linear-gradient(to right, hsl(var(--primary-accent)), hsl(var(--secondary-accent))); /* Gradient color */
-    margin: 1rem 0; /* Space above and below separator */
+    background: hsl(var(--border-color)); /* Use border color for separator */
+    margin: 1.5rem 0; /* Adjusted margin */
 }
 
 /* General form element styles for consistency */
 input[type="search"], select {
     width: 100%;
-    padding: 0.75rem 1rem; /* Increased padding */
+    padding: 0.75rem 1rem;
     border: 1px solid hsl(var(--input-border)); /* Input border color */
-    border-radius: 0; /* Sharp corners */
+    border-radius: 0;
     background-color: hsl(var(--input-background)); /* Input background color */
-    color: hsl(var(--foreground)); /* Text color */
-    font-size: 1rem; /* Standard font size */
-    margin-bottom: 0.5rem; /* Space below */
-    outline: none; /* Remove default outline */
-    box-sizing: border-box; /* Include padding in width */
-    text-transform: uppercase; /* Uppercase text */
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    margin-bottom: 0.8rem; /* Adjusted margin */
+    outline: none;
+    box-sizing: border-box;
+    text-transform: uppercase;
 }
 
 input[type="search"]::placeholder {
-    color: hsl(var(--placeholder-color)); /* Placeholder color */
-    text-transform: none; /* No uppercase for placeholder */
+    color: hsl(var(--placeholder-color));
+    text-transform: none;
 }
 
 input[type="search"]:focus, select:focus {
-    border-color: hsl(var(--active-border)); /* Cyan border on focus */
-    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.5); /* Cyan glow */
+    border-color: hsl(var(--active-border));
+    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.3); /* Less glow */
 }
 
 .view-toggle {
     display: flex;
-    gap: 1.5rem; /* Increased gap */
+    gap: 1.5rem;
     align-items: center;
-    margin-bottom: 1.5rem; /* Increased bottom margin */
+    margin-bottom: 1.5rem;
 }
 
 .view-toggle label {
@@ -164,8 +155,8 @@ input[type="search"]:focus, select:focus {
     cursor: pointer;
     color: hsl(var(--muted-foreground));
     transition: color 0.3s ease;
-    text-transform: uppercase; /* Uppercase labels */
-    font-size: 0.9rem; /* Slightly smaller font */
+    text-transform: uppercase;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
 }
 
@@ -176,44 +167,45 @@ input[type="search"]:focus, select:focus {
 .view-toggle input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
-    width: 20px; /* Increased size */
-    height: 20px; /* Increased size */
-    border: 2px solid hsl(var(--border-color));
-    border-radius: 50%;
-    margin-right: 0.6rem; /* Increased space */
+    width: 16px; /* Smaller size */
+    height: 16px; /* Smaller size */
+    border: 1px solid hsl(var(--border-color)); /* Thinner border */
+    border-radius: 0; /* Square radio buttons */
+    margin-right: 0.5rem; /* Adjusted space */
     position: relative;
     outline: none;
     cursor: pointer;
     background-color: transparent;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
 }
 
 .view-toggle input[type="radio"]:checked {
     border-color: hsl(var(--primary-accent));
-    background-color: hsl(var(--primary-accent));
-    box-shadow: 0 0 0 4px hsla(var(--primary-accent), 0.4); /* Larger glow effect */
+    background-color: hsl(var(--primary-accent)); /* Red background when checked */
+    box-shadow: none; /* No glow */
 }
 
 .view-toggle input[type="radio"]:checked::before {
-    content: '';
-    width: 10px; /* Increased inner dot size */
-    height: 10px; /* Increased inner dot size */
-    background-color: hsl(var(--background));
+    content: '\2713'; /* Checkmark */
+    font-size: 12px; /* Size of checkmark */
+    color: hsl(var(--background)); /* Dark checkmark */
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
+    width: 100%; /* Occupy full size for centering */
+    text-align: center;
+    line-height: 1;
 }
 
 .view-toggle input[type="radio"]:focus {
-    box-shadow: 0 0 0 4px hsla(var(--focus-ring), 0.6); /* Stronger focus glow */
+    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.4); /* Reduced focus glow */
     border-color: hsl(var(--focus-ring));
 }
 
 .view-toggle input[type="radio"]:checked + label {
-    color: hsl(var(--primary-accent)); /* Highlight checked label in primary accent */
+    color: hsl(var(--foreground)); /* Keep foreground color for checked label */
 }
 
 .search-sort-filter {
@@ -227,9 +219,9 @@ table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    border: none; /* Remove table border, handled by main-content/container */
+    border: 1px solid hsl(var(--border-color)); /* Add outer table border */
     table-layout: fixed;
-    font-size: 0.9rem; /* Slightly smaller font size */
+    font-size: 0.9rem;
     border-radius: 0;
     overflow: hidden;
     margin-top: 0;
@@ -237,19 +229,23 @@ table {
 }
 
 thead {
-    background-color: hsl(var(--input-background));
-    color: hsl(var(--primary-accent));
+    background-color: hsl(var(--input-background)); /* Dark header background */
+    color: hsl(var(--primary-accent)); /* Red header text */
+}
+
+tbody {
+    background-color: hsl(var(--card-background)); /* Slightly lighter body background */
 }
 
 th, td {
-    padding: 0.7rem 0.9rem; /* Adjusted padding slightly */
+    padding: 0.7rem 0.8rem; /* Adjusted padding */
     text-align: left;
     vertical-align: middle;
     border: none; /* Remove all borders initially */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: hsl(var(--foreground));
+    color: hsl(var(--foreground)); /* Default text color */
     box-sizing: border-box; /* Include padding/border in width */
 }
 
@@ -260,11 +256,11 @@ th {
     letter-spacing: 0.5px;
     position: relative;
     user-select: none;
-    background-color: hsl(var(--input-background));
-    color: hsl(var(--primary-accent));
+    background-color: hsl(var(--input-background)); /* Consistent header background */
+    color: hsl(var(--primary-accent)); /* Red header text */
     border-bottom: 1px solid hsl(var(--border-color)); /* Ensure header has bottom border */
     border-right: 1px solid hsl(var(--border-color)); /* Add right border to th */
-    font-size: 0.85rem; /* Slightly smaller header font */
+    font-size: 0.8rem; /* Slightly smaller header font */
 }
 
 th:last-child {
@@ -277,41 +273,72 @@ td {
 }
 
 td:last-child {
-    border-right: none; /* Remove right border for the last td */
+    border-right: none;
 }
 
 tbody tr:last-child td {
-    border-bottom: none; /* Remove bottom border for the last row's cells */
+    border-bottom: none;
 }
 
 /* Refined column width styles to prevent header truncation */
-/* Increased widths significantly for problematic headers */
+/* Increased widths and adjusted min-widths based on RED image */
 th:nth-child(1),
 td:nth-child(1) { /* Image column */
-    width: 220px; /* Increased fixed width */
-    min-width: 200px; /* Increased min-width */
-    max-width: 280px; /* Increased max-width */
+    width: 180px; /* Adjusted fixed width based on RED image */
+    min-width: 160px; /* Adjusted min-width */
+    max-width: 220px; /* Adjusted max-width */
 }
 
 th:nth-child(2),
 td:nth-child(2) { /* Name column */
     width: auto; /* Take remaining space */
-    min-width: 280px; /* Increased minimal width for name */
+    min-width: 260px; /* Adjusted minimal width for name */
 }
 
-th:nth-child(n+3),
-td:nth-child(n+3) { /* Other columns */
-    width: 140px; /* Adjusted example width */
-    min-width: 135px; /* Increased min-width */
-    max-width: 170px; /* Adjusted max-width */
+/* Specific widths for the smaller columns based on RED image */
+th:nth-child(3), td:nth-child(3) { /* WA */
+    width: 80px;
+    min-width: 70px;
 }
 
-/* Adjust specific columns that were problematic */
-th:nth-child(5), td:nth-child(5) { /* Damage */
-    min-width: 160px; /* Further increased min-width */
+th:nth-child(4), td:nth-child(4) { /* CON */
+     width: 80px;
+     min-width: 70px;
 }
-th:nth-child(7), td:nth-child(7) { /* Shots */
-    min-width: 150px; /* Further increased min-width */
+
+th:nth-child(5), td:nth-child(5) { /* DAMAG... */
+    width: 130px; /* Adjusted width */
+    min-width: 120px; /* Adjusted min-width */
+}
+
+th:nth-child(6), td:nth-child(6) { /* AMMO */
+    width: 100px; /* Adjusted width */
+    min-width: 90px; /* Adjusted min-width */
+}
+
+th:nth-child(7), td:nth-child(7) { /* SHOTS */
+    width: 110px; /* Adjusted width */
+    min-width: 100px; /* Adjusted min-width */
+}
+
+th:nth-child(8), td:nth-child(8) { /* ROF */
+    width: 80px;
+    min-width: 70px;
+}
+
+th:nth-child(9), td:nth-child(9) { /* REL */
+    width: 80px;
+    min-width: 70px;
+}
+
+th:nth-child(10), td:nth-child(10) { /* RANGE */
+    width: 100px; /* Adjusted width */
+    min-width: 90px;
+}
+
+th:nth-child(11), td:nth-child(11) { /* COST */
+    width: 100px; /* Adjusted width */
+    min-width: 90px;
 }
 
 th.sort-asc::after,
@@ -338,11 +365,11 @@ tbody tr {
 }
 
 tbody tr:nth-child(even) td {
-    background-color: hsl(var(--card-background));
+    background-color: hsl(var(--card-background)); /* Consistent with tbody background */
 }
 
 tbody tr:nth-child(odd) td {
-    background-color: hsl(var(--input-background));
+    background-color: hsl(var(--input-background)); /* Consistent with thead background */
 }
 
 tbody tr:hover td {
