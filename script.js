@@ -45,10 +45,26 @@ function setupSearchSortFilter() {
 
 function setupTableHeaderSorting() {
     const headers = document.querySelectorAll('#tableView th');
+    // Map header text to data keys
+    const columnMap = {
+        'image': 'image',
+        'name': 'name',
+        'wa': 'wa',
+        'con': 'con',
+        'damage': 'damage',
+        'ammo': 'ammo',
+        'shots': 'shots',
+        'rof': 'rof',
+        'rel': 'rel',
+        'range': 'range',
+        'cost': 'cost'
+    };
     headers.forEach(header => {
         header.style.cursor = 'pointer';
         header.addEventListener('click', () => {
-            const column = header.textContent.trim().toLowerCase();
+            const headerText = header.textContent.trim().toLowerCase();
+            const column = columnMap[headerText];
+            if (!column) return; // Ignore if no mapping
             if (currentSortColumn === column) {
                 // Cycle sort direction
                 if (currentSortDirection === 'asc') {
