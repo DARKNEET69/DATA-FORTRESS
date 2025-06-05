@@ -31,7 +31,8 @@ content:
   - name: data
     label: Data
     type: file
-    list: true
+    list:
+      collapsible: true
     path: data.json
     fields:
       - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
