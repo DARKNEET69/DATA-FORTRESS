@@ -355,12 +355,12 @@ function renderCards(items) {
             card.appendChild(con);
         }
 
-        // Avail
-        if (item.avail) {
-            const avail = document.createElement('p');
-            avail.textContent = 'Avail: ' + item.avail;
-            card.appendChild(avail);
-        }
+        // Remove Avail text display in cards
+        // if (item.avail) {
+        //     const avail = document.createElement('p');
+        //     avail.textContent = 'Avail: ' + item.avail;
+        //     card.appendChild(avail);
+        // }
 
         // Damage
         if (item.damage) {
@@ -476,12 +476,12 @@ function renderSelectedItem(item) {
         container.appendChild(con);
     }
 
-    // Avail
-    if (item.avail) {
-        const avail = document.createElement('p');
-        avail.textContent = 'Avail: ' + item.avail;
-        container.appendChild(avail);
-    }
+    // Remove Avail text display in selected item details
+    // if (item.avail) {
+    //     const avail = document.createElement('p');
+    //     avail.textContent = 'Avail: ' + item.avail;
+    //     container.appendChild(avail);
+    // }
 
     // Damage
     if (item.damage) {
