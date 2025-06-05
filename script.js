@@ -214,6 +214,8 @@ function renderTable(items) {
     const tbody = document.getElementById('tableBody');
     tbody.innerHTML = '';
     items.forEach(item => {
+        if (!item.name) return; // Skip items without a name to avoid empty rows
+
         const tr = document.createElement('tr');
         tr.dataset.itemId = item.id || '';
 
