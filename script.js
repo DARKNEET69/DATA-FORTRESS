@@ -132,30 +132,10 @@ function renderTable(items) {
     items.forEach(item => {
         const tr = document.createElement('tr');
 
-        const nameTd = document.createElement('td');
-        nameTd.textContent = item.name || '';
-        tr.appendChild(nameTd);
-
-        const categoryTd = document.createElement('td');
-        categoryTd.textContent = capitalize(item.category || '');
-        tr.appendChild(categoryTd);
-
-        const damageTd = document.createElement('td');
-        damageTd.textContent = item.damage || '';
-        tr.appendChild(damageTd);
-
-        const costTd = document.createElement('td');
-        costTd.textContent = item.cost !== undefined ? item.cost : '';
-        tr.appendChild(costTd);
-
-        const rangeTd = document.createElement('td');
-        rangeTd.textContent = item.range !== undefined ? item.range : '';
-        tr.appendChild(rangeTd);
-
+        // Image
         const imageTd = document.createElement('td');
         if (item.image) {
             const img = document.createElement('img');
-            // Prepend base path if image path starts with /media
             if (item.image.startsWith('/media')) {
                 img.src = '/DATA-FORTRESS' + item.image;
             } else {
@@ -168,6 +148,73 @@ function renderTable(items) {
         }
         tr.appendChild(imageTd);
 
+        // Name
+        const nameTd = document.createElement('td');
+        nameTd.textContent = item.name || '';
+        tr.appendChild(nameTd);
+
+        // WA with + prefix if non-negative
+        const waTd = document.createElement('td');
+        if (typeof item.wa === 'number') {
+            waTd.textContent = (item.wa >= 0 ? '+' : '') + item.wa;
+        } else {
+            waTd.textContent = '';
+        }
+        tr.appendChild(waTd);
+
+        // CON
+        const conTd = document.createElement('td');
+        conTd.textContent = item.con || '';
+        tr.appendChild(conTd);
+
+        // Avail
+        const availTd = document.createElement('td');
+        availTd.textContent = item.avail || '';
+        tr.appendChild(availTd);
+
+        // Damage
+        const damageTd = document.createElement('td');
+        damageTd.textContent = item.damage || '';
+        tr.appendChild(damageTd);
+
+        // Ammo
+        const ammoTd = document.createElement('td');
+        ammoTd.textContent = item.ammo || '';
+        tr.appendChild(ammoTd);
+
+        // Shots
+        const shotsTd = document.createElement('td');
+        shotsTd.textContent = item.shots !== undefined ? item.shots : '';
+        tr.appendChild(shotsTd);
+
+        // ROF
+        const rofTd = document.createElement('td');
+        rofTd.textContent = item.rof !== undefined ? item.rof : '';
+        tr.appendChild(rofTd);
+
+        // Rel
+        const relTd = document.createElement('td');
+        relTd.textContent = item.rel || '';
+        tr.appendChild(relTd);
+
+        // Range with "м" suffix
+        const rangeTd = document.createElement('td');
+        if (item.range !== undefined) {
+            rangeTd.textContent = item.range + 'м';
+        } else {
+            rangeTd.textContent = '';
+        }
+        tr.appendChild(rangeTd);
+
+        // Cost with "$" suffix
+        const costTd = document.createElement('td');
+        if (item.cost !== undefined) {
+            costTd.textContent = item.cost + '$';
+        } else {
+            costTd.textContent = '';
+        }
+        tr.appendChild(costTd);
+
         tbody.appendChild(tr);
     });
 }
@@ -179,9 +226,9 @@ function renderCards(items) {
         const card = document.createElement('div');
         card.className = 'card';
 
+        // Image
         if (item.image) {
             const img = document.createElement('img');
-            // Prepend base path if image path starts with /media
             if (item.image.startsWith('/media')) {
                 img.src = '/DATA-FORTRESS' + item.image;
             } else {
@@ -191,30 +238,79 @@ function renderCards(items) {
             card.appendChild(img);
         }
 
+        // Name
         const name = document.createElement('h3');
         name.textContent = item.name || '';
         card.appendChild(name);
 
-        const category = document.createElement('p');
-        category.textContent = 'Category: ' + capitalize(item.category || '');
-        card.appendChild(category);
+        // WA with + prefix if non-negative
+        if (typeof item.wa === 'number') {
+            const wa = document.createElement('p');
+            wa.textContent = 'WA: ' + (item.wa >= 0 ? '+' : '') + item.wa;
+            card.appendChild(wa);
+        }
 
+        // CON
+        if (item.con) {
+            const con = document.createElement('p');
+            con.textContent = 'CON: ' + item.con;
+            card.appendChild(con);
+        }
+
+        // Avail
+        if (item.avail) {
+            const avail = document.createElement('p');
+            avail.textContent = 'Avail: ' + item.avail;
+            card.appendChild(avail);
+        }
+
+        // Damage
         if (item.damage) {
             const damage = document.createElement('p');
             damage.textContent = 'Damage: ' + item.damage;
             card.appendChild(damage);
         }
 
-        if (item.cost !== undefined) {
-            const cost = document.createElement('p');
-            cost.textContent = 'Cost: ' + item.cost;
-            card.appendChild(cost);
+        // Ammo
+        if (item.ammo) {
+            const ammo = document.createElement('p');
+            ammo.textContent = 'Ammo: ' + item.ammo;
+            card.appendChild(ammo);
         }
 
+        // Shots
+        if (item.shots !== undefined) {
+            const shots = document.createElement('p');
+            shots.textContent = 'Shots: ' + item.shots;
+            card.appendChild(shots);
+        }
+
+        // ROF
+        if (item.rof !== undefined) {
+            const rof = document.createElement('p');
+            rof.textContent = 'ROF: ' + item.rof;
+            card.appendChild(rof);
+        }
+
+        // Rel
+        if (item.rel) {
+            const rel = document.createElement('p');
+            rel.textContent = 'Rel: ' + item.rel;
+            card.appendChild(rel);
+        }
+
+        // Range with "м" suffix
         if (item.range !== undefined) {
             const range = document.createElement('p');
-            range.textContent = 'Range: ' + item.range;
+            range.textContent = 'Range: ' + item.range + 'м';
             card.appendChild(range);
+        }
+
+        // Cost with "$" suffix
+        if (item.cost !== undefined) {
+            const cost = document.createElement('p');
+            cost.textContent = 'Cost: ' + item.cost + '$';
+            card.appendChild(cost);
         }
 
         container.appendChild(card);
