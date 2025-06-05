@@ -23,6 +23,11 @@ header {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     border-bottom: 1px solid #282828;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
