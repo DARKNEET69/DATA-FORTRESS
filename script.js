@@ -178,7 +178,6 @@ function populateCategoryFilter() {
 function applyFilters() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
-    const sortOption = document.getElementById('sortSelect').value;
 
     filteredItems = allItems.filter(item => {
         const matchesSearch = item.name.toLowerCase().includes(searchTerm);
@@ -186,25 +185,33 @@ function applyFilters() {
         return matchesSearch && matchesCategory;
     });
 
-    sortItems(sortOption);
+    sortItems();
     renderItems();
 }
 
-function sortItems(option) {
-    switch (option) {
-        case 'name-asc':
-            filteredItems.sort((a, b) => a.name.localeCompare(b.name));
-            break;
-        case 'name-desc':
-            filteredItems.sort((a, b) => b.name.localeCompare(a.name));
-            break;
-        case 'cost-asc':
-            filteredItems.sort((a, b) => (a.cost || 0) - (b.cost || 0));
-            break;
-        case 'cost-desc':
-            filteredItems.sort((a, b) => (b.cost || 0) - (a.cost || 0));
-            break;
+function sortItems() {
+    if (!currentSortColumn || !currentSortDirection) {
+        // No sorting, keep original order
+        filteredItems = filteredItems.slice();
+        return;
     }
+
+    filteredItems.sort((a, b) => {
+        let aVal = a[currentSortColumn];
+        let bVal = b[currentSortColumn];
+
+        // Handle undefined or null values
+        if (aVal === undefined || aVal === null) aVal = '';
+        if (bVal === undefined || bVal === null) bVal = '';
+
+        // Convert to string for name or other string fields
+        if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+        if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+
+        if (aVal < bVal) return currentSortDirection === 'asc' ? -1 : 1;
+        if (aVal > bVal) return currentSortDirection === 'asc' ? 1 : -1;
+        return 0;
+    });
 }
 
 function renderItems() {
