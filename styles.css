@@ -19,7 +19,7 @@ header {
     text-align: center;
     color: #1db954;
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     border-bottom: 1px solid #282828;
