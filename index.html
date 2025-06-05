@@ -1,1 +1,61 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cyberpunk 2020 Item Catalog</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Cyberpunk 2020 Item Catalog</h1>
+        <div class="view-toggle">
+            <label>
+                <input type="radio" name="view" value="table" checked />
+                Table View
+            </label>
+            <label>
+                <input type="radio" name="view" value="cards" />
+                Card View
+            </label>
+        </div>
+        <div class="search-sort-filter">
+            <input type="search" id="searchInput" placeholder="Search items..." />
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+            </select>
+            <select id="sortSelect">
+                <option value="name-asc">Sort by Name (A-Z)</option>
+                <option value="name-desc">Sort by Name (Z-A)</option>
+                <option value="cost-asc">Sort by Cost (Low to High)</option>
+                <option value="cost-desc">Sort by Cost (High to Low)</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <section id="tableView" class="view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Damage</th>
+                        <th>Cost</th>
+                        <th>Range</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data rows go here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="cardView" class="view" style="display:none;">
+            <div id="cardContainer" class="card-container">
+                <!-- Cards go here -->
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
