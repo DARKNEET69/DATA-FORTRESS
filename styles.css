@@ -3,21 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 :root{
-    /* Cyberpunk RED Palette */
-    --background: 10 5% 8%;     /* Very dark reddish-gray */
-    --foreground: 10 10% 85%; /* Off-white/light gray text */
-    --primary-accent: 0 80% 55%; /* Red */
-    --secondary-accent: 40 80% 60%; /* Orange/Yellow (for contrast) */
-    --border-color: 10 5% 30%; /* Dark gray border */
-    --card-background: 10 5% 12%; /* Slightly lighter dark for cards/blocks */
-    --input-background: 10 5% 15%; /* Darker input fields */
-    --input-border: 10 5% 35%; /* Darker gray input border */
-    --placeholder-color: 10 5% 50%; /* Muted gray placeholder */
-    --hover-background: 10 5% 20%; /* Slightly lighter on hover */
-    --active-border: var(--primary-accent); /* Red border on active */
-    --focus-ring: hsla(0, 80%, 55%, 0.4); /* Red glow */
-    --muted-foreground: 10 5% 65%; /* Muted text for less important info */
-    --radius: 0; /* Sharp corners */
+    /* New color palette from image */
+    --background: 0 0% 10%;     /* Very dark gray, almost black */
+    --foreground: 0 0% 85%; /* Light gray text */
+    --primary-accent: 190 80% 50%; /* Blue/Teal accent */
+    --secondary-accent: 200 60% 70%; /* Lighter blue for contrast */
+    --border-color: 0 0% 25%; /* Subtle dark gray border */
+    --card-background: 0 0% 15%; /* Slightly lighter dark for cards/blocks, table background */
+    --input-background: 0 0% 12%; /* Darker input fields, table header background */
+    --input-border: 0 0% 30%; /* Darker gray input border */
+    --placeholder-color: 0 0% 50%; /* Muted gray placeholder */
+    --hover-background: 0 0% 18%; /* Darker on hover for table rows */
+    --active-border: var(--primary-accent); /* Blue/Teal border on active */
+    --focus-ring: hsla(190, 80%, 50%, 0.4); /* Blue/Teal glow */
+    --muted-foreground: 0 0% 65%; /* Muted text for less important info */
+    --radius: 8px; /* Slightly rounded corners for the overall table/card */
 }
 
 body {
@@ -34,31 +34,35 @@ body {
 }
 
 header {
-    background-color: hsl(var(--card-background)); /* Use card background for header */
+    background-color: var(--card-background); /* Use card background for header */
     padding: 1rem;
-    text-align: center;
-    color: hsl(var(--primary-accent)); /* Red color for header */
+    text-align: left; /* Align text to left like in the image */
+    color: var(--foreground); /* Light gray color for header text */
     font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: 2px solid hsl(var(--primary-accent)); /* Red bottom border */
+    font-size: 1.5rem; /* Slightly smaller font size */
+    letter-spacing: 0px; /* Remove letter spacing */
+    text-transform: none; /* Remove uppercase transformation */
+    border-bottom: none; /* No bottom border as in the image */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     box-sizing: border-box;
     box-shadow: none; /* No shadow */
+    display: flex; /* Use flexbox for alignment of icon and text */
+    align-items: center; /* Vertically align items */
+    gap: 1rem; /* Space between icon and text */
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Match header font size */
     margin: 0;
     padding: 0;
     color: inherit;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: sans-serif; /* Change font to a generic sans-serif for a cleaner look */
 }
 
 .container {
@@ -217,35 +221,35 @@ input[type="search"]:focus, select:focus {
 /* Table styles */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Change to separate for rounded corners */
     border-spacing: 0;
-    border: 1px solid hsl(var(--border-color)); /* Add outer table border */
+    border: 1px solid var(--card-background); /* Subtle border for the container */
     table-layout: fixed;
     font-size: 0.9rem;
-    border-radius: 0;
-    overflow: hidden;
+    border-radius: var(--radius); /* Apply rounded corners */
+    overflow: hidden; /* Ensures content respects rounded corners */
     margin-top: 0;
     box-shadow: none;
 }
 
 thead {
-    background-color: hsl(var(--input-background)); /* Dark header background */
-    color: hsl(var(--primary-accent)); /* Red header text */
+    background-color: var(--input-background); /* Darker header background */
+    color: var(--foreground); /* Light gray header text */
 }
 
 tbody {
-    background-color: hsl(var(--card-background)); /* Slightly lighter body background */
+    background-color: var(--card-background); /* Slightly lighter body background */
 }
 
 th, td {
     padding: 0.7rem 0.8rem; /* Adjusted padding */
     text-align: left;
     vertical-align: middle;
-    border: none; /* Remove all borders initially */
+    border: none; /* Remove all borders */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: hsl(var(--foreground)); /* Default text color */
+    color: var(--foreground); /* Default text color */
     box-sizing: border-box; /* Include padding/border in width */
 }
 
@@ -361,20 +365,21 @@ th.sort-desc::after {
 }
 
 tbody tr {
-    /* Borders are on td, no border needed here */
+    transition: background-color 0.2s ease; /* Smooth transition for hover */
 }
 
-tbody tr:nth-child(even) td {
-    background-color: hsl(var(--card-background)); /* Consistent with tbody background */
-}
-
+tbody tr:nth-child(even) td,
 tbody tr:nth-child(odd) td {
-    background-color: hsl(var(--input-background)); /* Consistent with thead background */
+    background-color: transparent; /* Remove alternating background colors */
 }
 
 tbody tr:hover td {
-    background-color: hsl(var(--hover-background));
-    color: hsl(var(--foreground));
+    background-color: var(--hover-background); /* Darker background on hover */
+}
+
+/* Add a class for selected row, to be applied by JS */
+tbody tr.selected td {
+    background-color: var(--hover-background); /* Use the same darker background for selected */
 }
 
 /* Card styles */
