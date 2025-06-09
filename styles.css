@@ -3,21 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 :root{
-    /* New color palette from image */
-    --background: 0 0% 10%;     /* Very dark gray, almost black */
-    --foreground: 0 0% 85%; /* Light gray text */
-    --primary-accent: 190 80% 50%; /* Blue/Teal accent */
-    --secondary-accent: 200 60% 70%; /* Lighter blue for contrast */
-    --border-color: 0 0% 25%; /* Subtle dark gray border */
-    --card-background: 0 0% 15%; /* Slightly lighter dark for cards/blocks, table background */
-    --input-background: 0 0% 12%; /* Darker input fields, table header background */
-    --input-border: 0 0% 30%; /* Darker gray input border */
-    --placeholder-color: 0 0% 50%; /* Muted gray placeholder */
-    --hover-background: 0 0% 18%; /* Darker on hover for table rows */
-    --active-border: var(--primary-accent); /* Blue/Teal border on active */
-    --focus-ring: hsla(190, 80%, 50%, 0.4); /* Blue/Teal glow */
-    --muted-foreground: 0 0% 65%; /* Muted text for less important info */
-    --radius: 8px; /* Slightly rounded corners for the overall table/card */
+    /* Cyberpunk RED Palette */
+    --background: 10 5% 8%;     /* Very dark reddish-gray */
+    --foreground: 10 10% 85%; /* Off-white/light gray text */
+    --primary-accent: 0 80% 55%; /* Red */
+    --secondary-accent: 40 80% 60%; /* Orange/Yellow (for contrast) */
+    --border-color: 10 5% 30%; /* Dark gray border */
+    --card-background: 10 5% 12%; /* Slightly lighter dark for cards/blocks */
+    --input-background: 10 5% 15%; /* Darker input fields */
+    --input-border: 10 5% 35%; /* Darker gray input border */
+    --placeholder-color: 10 5% 50%; /* Muted gray placeholder */
+    --hover-background: 10 5% 20%; /* Slightly lighter on hover */
+    --active-border: var(--primary-accent); /* Red border on active */
+    --focus-ring: hsla(0, 80%, 55%, 0.4); /* Red glow */
+    --muted-foreground: 10 5% 65%; /* Muted text for less important info */
+    --radius: 0; /* Sharp corners */
 }
 
 body {
@@ -31,40 +31,34 @@ body {
     flex-direction: column;
     overflow-x: hidden;
     line-height: 1.5;
-    padding: 20px; /* Add padding around the entire application */
-    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 header {
-    background-color: var(--card-background); /* Use card background for header */
+    background-color: hsl(var(--card-background)); /* Use card background for header */
     padding: 1rem;
-    text-align: left; /* Align text to left like in the image */
-    color: var(--foreground); /* Light gray color for header text */
+    text-align: center;
+    color: hsl(var(--primary-accent)); /* Red color for header */
     font-weight: 700;
-    font-size: 1.5rem; /* Slightly smaller font size */
-    letter-spacing: 0px; /* Remove letter spacing */
-    text-transform: none; /* Remove uppercase transformation */
-    border-bottom: none; /* No bottom border as in the image */
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid hsl(var(--primary-accent)); /* Red bottom border */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     box-sizing: border-box;
     box-shadow: none; /* No shadow */
-    display: flex; /* Use flexbox for alignment of icon and text */
-    align-items: center; /* Vertically align items */
-    gap: 1rem; /* Space between icon and text */
 }
 
 header h1 {
-    font-size: 1.5rem; /* Match header font size */
+    font-size: 2rem;
     margin: 0;
     padding: 0;
     color: inherit;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: sans-serif; /* Change font to a generic sans-serif for a cleaner look */
 }
 
 .container {
@@ -75,9 +69,6 @@ header h1 {
     overflow: hidden;
     padding: 0; /* Remove padding from container */
     gap: 0; /* Remove gap */
-    background-color: var(--card-background); /* Apply card background to the whole container */
-    border-radius: var(--radius); /* Apply rounded corners to the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .container > * {
@@ -95,7 +86,7 @@ header h1 {
     flex-direction: column;
     gap: 1.5rem;
     flex-shrink: 0;
-    border-right: 1px solid var(--border-color); /* Add border between sidebars and main content */
+    border-right: 1px solid hsl(var(--border-color)); /* Add border between sidebars and main content */
 }
 
 .left-sidebar {
@@ -152,7 +143,69 @@ input[type="search"]:focus, select:focus {
 }
 
 .view-toggle {
-    display: none; /* Hide the view toggle as it's not in the image */
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.view-toggle label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.view-toggle label:hover {
+    color: hsl(var(--foreground));
+}
+
+.view-toggle input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px; /* Smaller size */
+    height: 16px; /* Smaller size */
+    border: 1px solid hsl(var(--border-color)); /* Thinner border */
+    border-radius: 0; /* Square radio buttons */
+    margin-right: 0.5rem; /* Adjusted space */
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.view-toggle input[type="radio"]:checked {
+    border-color: hsl(var(--primary-accent));
+    background-color: hsl(var(--primary-accent)); /* Red background when checked */
+    box-shadow: none; /* No glow */
+}
+
+.view-toggle input[type="radio"]:checked::before {
+    content: '\2713'; /* Checkmark */
+    font-size: 12px; /* Size of checkmark */
+    color: hsl(var(--background)); /* Dark checkmark */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Occupy full size for centering */
+    text-align: center;
+    line-height: 1;
+}
+
+.view-toggle input[type="radio"]:focus {
+    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.4); /* Reduced focus glow */
+    border-color: hsl(var(--focus-ring));
+}
+
+.view-toggle input[type="radio"]:checked + label {
+    color: hsl(var(--foreground)); /* Keep foreground color for checked label */
 }
 
 .search-sort-filter {
@@ -164,165 +217,151 @@ input[type="search"]:focus, select:focus {
 /* Table styles */
 table {
     width: 100%;
-    border-collapse: separate; /* Change to separate for rounded corners */
+    border-collapse: collapse;
     border-spacing: 0;
-    border: 1px solid var(--card-background); /* Subtle border for the container */
+    border: 1px solid hsl(var(--border-color)); /* Add outer table border */
     table-layout: fixed;
     font-size: 0.9rem;
-    border-radius: var(--radius); /* Apply rounded corners */
-    overflow: hidden; /* Ensures content respects rounded corners */
+    border-radius: 0;
+    overflow: hidden;
     margin-top: 0;
     box-shadow: none;
 }
 
 thead {
-    background-color: var(--input-background); /* Darker header background */
-    color: var(--foreground); /* Light gray header text */
+    background-color: hsl(var(--input-background)); /* Dark header background */
+    color: hsl(var(--primary-accent)); /* Red header text */
 }
 
 tbody {
-    background-color: var(--card-background); /* Slightly lighter body background */
+    background-color: hsl(var(--card-background)); /* Slightly lighter body background */
 }
 
 th, td {
     padding: 0.7rem 0.8rem; /* Adjusted padding */
     text-align: left;
     vertical-align: middle;
-    border: none; /* Remove all borders */
+    border: none; /* Remove all borders initially */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: var(--foreground); /* Default text color */
+    color: hsl(var(--foreground)); /* Default text color */
     box-sizing: border-box; /* Include padding/border in width */
 }
 
 th {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: 10;
+    border-bottom: 1px solid hsl(var(--border-color)); /* Add bottom border to header */
     font-weight: 700;
-    cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    position: relative;
-    user-select: none;
-    background-color: hsl(var(--input-background)); /* Consistent header background */
-    color: hsl(var(--primary-accent)); /* Red header text */
-    border-bottom: 1px solid hsl(var(--border-color)); /* Ensure header has bottom border */
-    border-right: 1px solid hsl(var(--border-color)); /* Add right border to th */
-    font-size: 0.8rem; /* Slightly smaller header font */
+}
+
+th:first-child {
+    border-top-left-radius: 0;
 }
 
 th:last-child {
-    border-right: none; /* Remove right border for the last th */
+    border-top-right-radius: 0;
 }
 
 td {
-    border-bottom: 1px solid hsl(var(--border-color)); /* Keep bottom border for td to separate rows */
-    border-right: 1px solid hsl(var(--border-color)); /* Add right border to td */
+    border-bottom: 1px solid hsl(var(--border-color)); /* Add bottom border to cells */
 }
 
 td:last-child {
-    border-right: none;
+    border-right: none; /* No right border on last cell */
 }
 
 tbody tr:last-child td {
-    border-bottom: none;
+    border-bottom: none; /* No bottom border on last row */
 }
 
-/* Refined column width styles to prevent header truncation */
-/* Increased widths and adjusted min-widths based on RED image */
+/* Specific column widths - adjust as needed */
 th:nth-child(1),
-td:nth-child(1) { /* Image column */
-    width: 180px; /* Adjusted fixed width based on RED image */
-    min-width: 160px; /* Adjusted min-width */
-    max-width: 220px; /* Adjusted max-width */
+td:nth-child(1) { /* Image */
+    width: 80px;
+    text-align: center;
 }
 
 th:nth-child(2),
-td:nth-child(2) { /* Name column */
-    width: auto; /* Take remaining space */
-    min-width: 260px; /* Adjusted minimal width for name */
+td:nth-child(2) { /* Name */
+    width: 180px;
+    font-weight: 700;
+    color: hsl(var(--foreground));
 }
 
-/* Specific widths for the smaller columns based on RED image */
 th:nth-child(3), td:nth-child(3) { /* WA */
-    width: 80px;
-    min-width: 70px;
+    width: 60px;
 }
 
 th:nth-child(4), td:nth-child(4) { /* CON */
-     width: 80px;
-     min-width: 70px;
+    width: 60px;
 }
 
-th:nth-child(5), td:nth-child(5) { /* DAMAG... */
-    width: 130px; /* Adjusted width */
-    min-width: 120px; /* Adjusted min-width */
+th:nth-child(5), td:nth-child(5) { /* DAMAGE */
+    width: 90px;
 }
 
 th:nth-child(6), td:nth-child(6) { /* AMMO */
-    width: 100px; /* Adjusted width */
-    min-width: 90px; /* Adjusted min-width */
+    width: 70px;
 }
 
 th:nth-child(7), td:nth-child(7) { /* SHOTS */
-    width: 110px; /* Adjusted width */
-    min-width: 100px; /* Adjusted min-width */
+    width: 70px;
 }
 
 th:nth-child(8), td:nth-child(8) { /* ROF */
-    width: 80px;
-    min-width: 70px;
+    width: 60px;
 }
 
 th:nth-child(9), td:nth-child(9) { /* REL */
-    width: 80px;
-    min-width: 70px;
+    width: 60px;
 }
 
 th:nth-child(10), td:nth-child(10) { /* RANGE */
-    width: 100px; /* Adjusted width */
-    min-width: 90px;
+    width: 80px;
 }
 
 th:nth-child(11), td:nth-child(11) { /* COST */
-    width: 100px; /* Adjusted width */
-    min-width: 90px;
+    width: 100px;
+    font-weight: 700;
+    color: hsl(var(--secondary-accent));
 }
 
+/* Sorting indicators */
 th.sort-asc::after,
 th.sort-desc::after {
-    content: '';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 6px 5px 0 5px;
-    border-color: hsl(var(--primary-accent)) transparent transparent transparent;
-    transform: translateY(-50%);
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+th.sort-asc::after {
+    content: '▲';
 }
 
 th.sort-desc::after {
-    border-width: 0 5px 6px 5px;
-    border-color: transparent transparent hsl(var(--primary-accent)) transparent;
+    content: '▼';
 }
 
 tbody tr {
-    transition: background-color 0.2s ease; /* Smooth transition for hover */
+    /* Borders are on td, no border needed here */
 }
 
-tbody tr:nth-child(even) td,
+tbody tr:nth-child(even) td {
+    background-color: hsl(var(--card-background)); /* Consistent with tbody background */
+}
+
 tbody tr:nth-child(odd) td {
-    background-color: transparent; /* Remove alternating background colors */
+    background-color: hsl(var(--input-background)); /* Consistent with thead background */
 }
 
 tbody tr:hover td {
-    background-color: var(--hover-background); /* Darker background on hover */
-}
-
-/* Add a class for selected row, to be applied by JS */
-tbody tr.selected td {
-    background-color: var(--hover-background); /* Use the same darker background for selected */
+    background-color: hsl(var(--hover-background));
+    color: hsl(var(--foreground));
 }
 
 /* Card styles */
@@ -335,26 +374,26 @@ tbody tr.selected td {
 }
 
 .card {
-    background: var(--card-background);
-    border-radius: var(--radius); /* Apply rounded corners */
+    background: hsl(var(--card-background));
+    border-radius: 0;
     width: 250px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
-    color: var(--foreground);
-    border: none; /* Remove border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: border-color 0.3s ease;
+    color: hsl(var(--foreground));
+    border: 2px solid hsl(var(--border-color));
+    box-shadow: none;
 }
 
 .card:hover {
-    background: var(--hover-background); /* Darker background on hover */
-    border-color: transparent; /* No border change on hover */
-    color: var(--foreground);
+    background: hsl(var(--card-background));
+    border-color: hsl(var(--primary-accent));
+    color: hsl(var(--foreground));
     transform: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow on hover */
+    box-shadow: none;
 }
 
 .card img {
@@ -365,7 +404,7 @@ tbody tr.selected td {
     border-radius: 0;
     background-color: transparent;
     padding: 0;
-    border: 1px solid var(--border-color); /* Use the new border color variable */
+    border: 1px solid hsl(var(--border-color));
 }
 
 .card h3 {
@@ -374,7 +413,7 @@ tbody tr.selected td {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--primary-accent); /* Use the new primary accent color */
+    color: hsl(var(--primary-accent));
 }
 
 .card p {
@@ -382,7 +421,8 @@ tbody tr.selected td {
     font-size: 0.95rem;
     width: 100%;
     word-wrap: break-word;
-    color: var(--muted-foreground); /* Use the new muted foreground color */
+    color: hsl(var(--muted-foreground));
+    text-align: center;
 }
 
 /* Selected item details */
@@ -504,12 +544,4 @@ tbody tr.selected td {
     #selectedItemDetails img {
         max-height: 150px;
     }
-}
-
-/* New style for menu icon */
-.menu-icon {
-    font-size: 1.5rem; /* Size of the hamburger icon */
-    color: var(--foreground); /* Color of the icon */
-    cursor: pointer;
-    margin-right: 0.5rem; /* Space between icon and text */
 }
