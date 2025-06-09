@@ -31,6 +31,8 @@ body {
     flex-direction: column;
     overflow-x: hidden;
     line-height: 1.5;
+    padding: 20px; /* Add padding around the entire application */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 header {
@@ -73,6 +75,9 @@ header h1 {
     overflow: hidden;
     padding: 0; /* Remove padding from container */
     gap: 0; /* Remove gap */
+    background-color: var(--card-background); /* Apply card background to the whole container */
+    border-radius: var(--radius); /* Apply rounded corners to the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .container > * {
@@ -90,7 +95,7 @@ header h1 {
     flex-direction: column;
     gap: 1.5rem;
     flex-shrink: 0;
-    border-right: 1px solid hsl(var(--border-color)); /* Add border between sidebars and main content */
+    border-right: 1px solid var(--border-color); /* Add border between sidebars and main content */
 }
 
 .left-sidebar {
@@ -147,69 +152,7 @@ input[type="search"]:focus, select:focus {
 }
 
 .view-toggle {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.view-toggle label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: hsl(var(--muted-foreground));
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-.view-toggle label:hover {
-    color: hsl(var(--foreground));
-}
-
-.view-toggle input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 16px; /* Smaller size */
-    height: 16px; /* Smaller size */
-    border: 1px solid hsl(var(--border-color)); /* Thinner border */
-    border-radius: 0; /* Square radio buttons */
-    margin-right: 0.5rem; /* Adjusted space */
-    position: relative;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
-    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
-}
-
-.view-toggle input[type="radio"]:checked {
-    border-color: hsl(var(--primary-accent));
-    background-color: hsl(var(--primary-accent)); /* Red background when checked */
-    box-shadow: none; /* No glow */
-}
-
-.view-toggle input[type="radio"]:checked::before {
-    content: '\2713'; /* Checkmark */
-    font-size: 12px; /* Size of checkmark */
-    color: hsl(var(--background)); /* Dark checkmark */
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; /* Occupy full size for centering */
-    text-align: center;
-    line-height: 1;
-}
-
-.view-toggle input[type="radio"]:focus {
-    box-shadow: 0 0 0 2px hsla(var(--focus-ring), 0.4); /* Reduced focus glow */
-    border-color: hsl(var(--focus-ring));
-}
-
-.view-toggle input[type="radio"]:checked + label {
-    color: hsl(var(--foreground)); /* Keep foreground color for checked label */
+    display: none; /* Hide the view toggle as it's not in the image */
 }
 
 .search-sort-filter {
@@ -392,26 +335,26 @@ tbody tr.selected td {
 }
 
 .card {
-    background: hsl(var(--card-background));
-    border-radius: 0;
+    background: var(--card-background);
+    border-radius: var(--radius); /* Apply rounded corners */
     width: 250px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: border-color 0.3s ease;
-    color: hsl(var(--foreground));
-    border: 2px solid hsl(var(--border-color));
-    box-shadow: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+    color: var(--foreground);
+    border: none; /* Remove border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .card:hover {
-    background: hsl(var(--card-background));
-    border-color: hsl(var(--primary-accent));
-    color: hsl(var(--foreground));
+    background: var(--hover-background); /* Darker background on hover */
+    border-color: transparent; /* No border change on hover */
+    color: var(--foreground);
     transform: none;
-    box-shadow: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more prominent shadow on hover */
 }
 
 .card img {
@@ -422,7 +365,7 @@ tbody tr.selected td {
     border-radius: 0;
     background-color: transparent;
     padding: 0;
-    border: 1px solid hsl(var(--border-color));
+    border: 1px solid var(--border-color); /* Use the new border color variable */
 }
 
 .card h3 {
@@ -431,7 +374,7 @@ tbody tr.selected td {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: hsl(var(--primary-accent));
+    color: var(--primary-accent); /* Use the new primary accent color */
 }
 
 .card p {
@@ -439,8 +382,7 @@ tbody tr.selected td {
     font-size: 0.95rem;
     width: 100%;
     word-wrap: break-word;
-    color: hsl(var(--muted-foreground));
-    text-align: center;
+    color: var(--muted-foreground); /* Use the new muted foreground color */
 }
 
 /* Selected item details */
@@ -562,4 +504,12 @@ tbody tr.selected td {
     #selectedItemDetails img {
         max-height: 150px;
     }
+}
+
+/* New style for menu icon */
+.menu-icon {
+    font-size: 1.5rem; /* Size of the hamburger icon */
+    color: var(--foreground); /* Color of the icon */
+    cursor: pointer;
+    margin-right: 0.5rem; /* Space between icon and text */
 }
