@@ -33,6 +33,7 @@ content:
   type: file
   path: data.json
   format: datagrid
+  list: true
   fields:
   - { name: id, label: ID, type: uuid, hidden: true, options: { editable: false }}
   - { name: name, label: NAME, type: string, required: true }
